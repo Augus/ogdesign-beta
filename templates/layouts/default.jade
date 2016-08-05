@@ -1,0 +1,172 @@
+include ../mixins/flash-messages
+
+doctype html
+html(lang="zh-Hant-TW")
+
+	//- HTML HEADER
+	head
+		meta(charset="utf-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+		meta(http-equiv="X-UA-Compatible" content="IE=edge")
+		link(rel="alternate", type="application/rss+xml", title="奧革設計 - 創業公司的設計夥伴", href="/feed/")
+		link(rel="shortcut icon", href="/favicon.png", type="image/x-icon")
+		link(href="/styles/site.css", rel="stylesheet")
+		link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+
+		script(src='//dsms0mj1bbhn4.cloudfront.net/assets/pub/shareaholic.js', data-shr-siteid='55304172845f4680864cd0fe1d0ec44d', data-cfasync='false', async='async')
+		link(href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600,400italic,300italic', rel='stylesheet', type='text/css')
+
+		//- This file provides the default styling for the KeystoneJS Content Editor
+		if user && user.canAccessKeystone
+			link(href="/keystone/styles/content/editor.min.css", rel="stylesheet")
+
+		//- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+		//- Safely remove this block if you are not targeting IE8
+		//-[if lt IE 9]
+			script(src="//cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.js")
+			script(src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js")
+		//-[endif]
+		block opengraph
+			meta(property='og:image', content='http://www.ogdesign.tw/images/home-cover.jpg')
+		block css
+		block head
+
+	body(ng-app="ogdesignApp" ng-controller="RootController" ng-cloak)
+
+		//- HEADER
+		block header
+		.header
+			.container
+				.row.between-md.middle-md
+					.col-md-1.textAlign-left
+						h1: a(href="/")
+							img(src="/images/logo.svg" alt="奧革設計")
+					.col-md-7
+						ul.nav
+							//- li(class=(section=='home')? "active" : ""): a(href="/") 關於我們
+							li(class=(section=='services')? "active" : ""): a(href="/services") 服務項目
+							li(class=(section=='process')? "active" : ""): a(href="/process") 合作流程
+							li(class=(section=='showcases')? "active" : ""): a(href="/showcases") 設計案例
+							li(class=(section=='resources')? "active" : ""): a(href="/resources") 設計資源總匯
+							li(class=(section=='blog')? "active" : ""): a(href="/blog") 部落格
+					.col-md-4.textAlign-right
+						a.QA(href="/qa")
+							i.material-icons help_outline
+							span 常見問題
+						a.button.button-ghost.button-grey.button-rounded.button-s.button-hover-primary(href="/contactus") 聯絡我們
+
+		//- BODY
+		#body
+			.main-content
+				block intro
+				+flash-messages(messages)
+				block content
+
+		//- FOOTER
+		.footer
+			.container
+				.row.top-md
+					.col-sm-12.sitemap
+						.links
+							a.link-title(href='/') 關於我們
+							a(href='/resources') 設計資源
+							a(href='/blog') 部落格
+							a(href='http://fb.com/ogdesign.tw' target="_blank") 粉絲團
+
+						.links
+							a.link-title(href='/services') 服務項目
+							a(href='#') 使用經驗優化設計
+							a(href='#') 使用者介面設計
+							a(href='#') 響應式網頁設計
+							a(href='#') 視覺設計
+							a(href='#') 產品雛形設計
+							a(href='#') 設計諮詢協助
+						.links.hidden-sm
+							a.link-title(href='/process') 合作流程
+							a(href='#') 產品需求分析
+							a(href='#') 架構規劃
+							a(href='#') 設計階段
+							a(href='#') 正式開發
+							a(href='#') 產品上線
+						.links.hidden-md.hidden-sm
+							a.link-title(href='#') 設計觀點
+							a(href='#') 介面設計
+							a(href='#') 用戶體驗
+							a(href='#') 交互設計
+							a(href='#') 產品設計
+						.links
+							a.link-title(href='#') 聯絡我們
+							a.phone(href='#') 0927-598-161
+							a(href='#') 信箱：augus@ogdesign.tw
+							a(href='#') 地址：新北市三重區正義北路215號2樓
+							a(href='#') 粉專：http://fb.com/ogdesign.tw
+							.fb-like(data-href="https://www.facebook.com/ogdesign.tw", data-layout="button_count", data-action="like", data-show-faces="false", data-share="true", data-width="200", data-colorscheme="light", style="display: block; color: #111D2D; width: 200px; overflow: hidden; height: 20px;     margin: 16px 0 12px 0;")
+							.fb-follow(data-href="https://www.facebook.com/Augus.YiHao", data-width="90", data-layout="button_count", data-show-faces="true", style="display: block;")
+
+		//- JAVASCRIPT
+		
+		//- jQuery 1.11.3 is included by default, and required by both Bootstrap
+		//- and the KeystoneJS Content Editor. If you are not targeting IE8,
+		//- you can upgrade to 2.1.4 (also bundled) for better performance.
+		script(src='/js/jquery/jquery-1.11.3.min.js')
+
+		//- Customise which Bootstrap javascript files are served by including
+		script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js')
+		script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.js')
+		script(src='/js/angular-google-analytics.min.js')
+		script(src='/js/angular-lazy-img.min.js')
+
+		script(src='/js/modules/imagesloaded.pkgd.min.js')
+		script(src='/js/modules/masonry.pkgd.min.js')
+		script(src='/js/modules/angular-masonry.min.js')
+
+		script(src="/js/modules/angular-swiper/swiper.min.js")
+		script(src="/js/modules/angular-swiper/angular-swiper.js")
+		link(href="/js/modules/angular-swiper/swiper.min.css", rel="stylesheet")
+
+		sceipt(src='/js/app.js')
+
+		//- The KeystoneJS Content Editor provides support for ks-editable data attributes,
+		//- which generate links to edit content for users who can access Keystone
+		if user && user.canAccessKeystone
+			script(src='/keystone/js/content/editor.js')
+
+		
+		//- Add scripts that are globally required by your site here.
+		script.
+			var app = angular.module("ogdesignApp", ['angular-google-analytics', 'wu.masonry', 'ksSwiper']);
+			app.controller("RootController", function ($scope) {
+
+			});
+			(function(i, s, o, g, r, a, m) {
+				i['GoogleAnalyticsObject'] = r;
+				i[r] = i[r] || function() {
+				(i[r].q = i[r].q || []).push(arguments)
+				}, i[r].l = 1 * new Date();
+				a = s.createElement(o),
+				m = s.getElementsByTagName(o)[0];
+				a.async = 1;
+				a.src = g;
+				m.parentNode.insertBefore(a, m)
+			})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+			ga('create', 'UA-52653674-2', 'auto');
+			ga('require', 'linkid');
+			ga('send', 'pageview');		
+
+			$(document).on('click', 'a', function(event){
+			    // event.preventDefault();
+			    $('html, body').animate({
+			        scrollTop: $( $.attr(this, 'href') ).offset().top
+			    }, 300);
+			});
+			$(document).ready(function() {
+				hljs.configure({
+				  tabReplace: '    ', // 4 spaces
+				})
+				$('pre code').each(function(i, block) {
+					hljs.highlightBlock(block);
+				});
+			});
+
+	block js

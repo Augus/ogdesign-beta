@@ -1,0 +1,217 @@
+extends ../layouts/default
+
+
+block opengraph
+	//- meta(property='fb:app_id', content='138566025676')
+	title= title || '奧革設計 - 創業公司的設計夥伴'
+	meta(name="description", content="奧革設計是一家使用者介面設計及使用者經驗諮詢公司，我們擅長透過設計新思維創造最好的產品體驗。")
+	meta(name="keywords", content="網頁設計,App設計,使用者經驗設計,網站開發,設計顧問,設計諮詢")
+	meta(property='og:site_name', content='奧革設計 - 創業公司的設計夥伴')
+	meta(property='og:type', content='website')
+	//- meta(property='og:url', content='')
+	meta(property='og:title', content='奧革設計 - 創業公司的設計夥伴')
+	meta(property='og:description', content='奧革設計是一家使用者介面設計及使用者經驗諮詢公司，我們擅長透過設計新思維創造最好的產品體驗。')
+	meta(property='og:image', content='http://www.ogdesign.tw/images/home-cover.jpg')
+	meta(property='og:locale', content='zh_TW')
+	base(href="/#")
+
+block content
+	.home-page
+		.banner(style='background-image: url(images/bg.jpg)')
+			.container.textAlign-center
+				.info
+					.marginTop-l
+					h2.quote 幫助創業團隊<br class="hidden-lg hidden-md hidden-sm">打造令人難忘的產品體驗
+					p.hidden-xs.hidden-sm 奧革設計專注於使用者介面設計服務，提供完整的需求研究、使用介面設計、產品原型等解決方案，我們擅長透過產品思維打造令人難忘的產品（使用）體驗。
+					p.hidden-md.hidden-lg 奧革設計專注於使用者介面設計服務，提供完整的需求研究、使用介面設計。
+					.marginBottom-m
+					a.button.button-s.button-primary(href="/showcases") 查看設計案例
+					a.button.button-ghost.button-s.button-white(href="/process") 查看合作流程
+		
+		//- ============ 服務項目 =============
+		section
+			.info
+				h2 服務項目
+				p 我們設計的不只是產品，我們更打造讓你感覺順暢的使用體驗，
+					a(href='/services') 瞭解更多服務項目
+					| 。
+				.marginBottom-xl
+			.container
+					.row.services
+						.col-md-4.service
+							.icon
+								img(src='images/services/service-ux.svg', alt='使用經驗優化設計')
+							h3 使用經驗優化設計
+							p 依照您的需求進行客製化的分析以及研究，從用戶體驗的視角提出的解決方式，讓使用者需求與商業目標在您的產品中找到完美平衡。
+						.col-md-4.service
+							.icon
+								img(src='images/services/service-ui.svg', alt='使用者介面設計')
+							h3 使用者介面設計
+							p 美觀的使用者介面與流暢的使用者經驗才能抓住使用者的心，我們的初衷即是在美學與需求中找到平衡點，設計出美好的產品體驗。
+						.col-md-4.service
+							.icon
+								img(src='images/services/service-rwd.svg', alt='響應式網頁設計')
+							h3 響應式網頁設計
+							p 響應式網頁設計 (Responsive Web Design，RWD) 是現在這個多元裝置時代不可或缺的服務，我們將協助您打造絕佳的使用體驗。
+						.col-md-4.service
+							.icon
+								img(src='images/services/service-vd.svg', alt='視覺設計')
+							h3 視覺設計
+							p 除了影音圖文廣告製作外，我們能同時讓旗下合作頻道、插畫家、創作者進行曝光，讓知名度於短時間內急速攀升。
+						.col-md-4.service
+							.icon
+								img(src='images/services/service-mvp.svg', alt='產品雛形設計')
+							h3 產品雛形設計
+							p 用最少的成本證明你的想法，利用最小可行性產品快速驗證你的想法，我們能夠迅速的開發極為擬真的產品雛形。
+						.col-md-4.service
+							.icon
+								img(src='images/services/service-consult.svg', alt='設計諮詢協助')
+							h3 設計諮詢協助
+							p 除了影音圖文廣告製作外，我們能同時讓旗下合作頻道、插畫家、創作者進行曝光，讓知名度於短時間內急速攀升。
+
+		//- ============ 設計案例 =============
+		section.grey
+			.info
+				h2 設計案例
+				p 優秀的設計贏得用戶，簡單並注重細節的產品可以為用戶帶來難忘的體驗，
+					a(href='/showcases') 查看更多設計案例
+					| 。
+				.marginBottom-l
+			.row.showcases
+				.col-md-4
+					.showcase
+						.thumbnail
+							img(src='images/showcases/showcase-1.jpg', alt='丹山嘉訊 - App 設計')
+						.intro
+							h3 丹山嘉訊 - App 設計
+							p 華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。
+				.col-md-4
+					.showcase
+						.thumbnail
+							img(src='images/showcases/showcase-2.jpg', alt='丹山嘉訊 - App 設計')
+						.intro
+							h3 丹山嘉訊 - App 設計
+							p 華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。
+				.col-md-4
+					.showcase
+						.thumbnail
+							img(src='images/showcases/showcase-3.jpg', alt='丹山嘉訊 - App 設計')
+						.intro
+							h3 丹山嘉訊 - App 設計
+							p 華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。
+				.col-md-4
+					.showcase
+						.thumbnail
+							img(src='images/showcases/showcase-4.jpg', alt='丹山嘉訊 - App 設計')
+						.intro
+							h3 丹山嘉訊 - App 設計
+							p 華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。
+				.col-md-4
+					.showcase
+						.thumbnail
+							img(src='images/showcases/showcase-5.jpg', alt='丹山嘉訊 - App 設計')
+						.intro
+							h3 丹山嘉訊 - App 設計
+							p 華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。
+				.col-md-4
+					.showcase
+						.thumbnail
+							img(src='images/showcases/showcase-6.jpg', alt='丹山嘉訊 - App 設計')
+						.intro
+							h3 丹山嘉訊 - App 設計
+							p 華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。
+
+		//- ============ 合作流程 =============
+		section
+			.info
+				h2 合作流程
+				p 我們設計的不只是產品，我們更打造讓你感覺順暢的使用體驗，
+					a(href='/process') 瞭解流程細節
+					| 。
+				.marginBottom-xl
+				img(src='images/process.png', alt='奧革設計合作流程')
+
+		//- ============ 夥伴推薦 =============
+		section
+			.info
+				h2 夥伴推薦
+				p 我們希望能夠與更多的團隊一起成長、進步，<br>快來看看夥伴們怎麼說
+		
+		section.grey
+			.info
+				h2 設計觀點
+				p 我們樂於與各界分享我們對於技術創新、設計理念的觀點和看法，
+					a(href="/blog") 查看更多文章
+					|。
+				.marginBottom-l
+			.row.posts
+				.col-md-4
+					a.post
+						.thumbnail(style='background-image: url(images/posts/1.png)')
+							.tag.tag1 介面設計
+						.intro
+							h3 淺談介面的空白狀態設計 Empty State Design
+							p 各種社群媒體擁有截然不同的特性，好的社群經營者懂得釐清行銷目的，交叉活用工具，創造績效。徹底理解社群奧義，不再被工具遷著鼻子走，聰明經營社群、創造行銷實效，徹底打開你的社群行銷力！
+							.metas MAY 26, 2016 BY 奧革士
+				.col-md-4
+					a.post
+						.thumbnail(style='background-image: url(images/posts/2.png)')
+							.tag.tag2 交互設計
+						.intro
+							h3 介面動畫設計要瞭解的事情
+							p 各種社群媒體擁有截然不同的特性，好的社群經營者懂得釐清行銷目的，交叉活用工具，創造績效。徹底理解社群奧義，不再被工具遷著鼻子走，聰明經營社群、創造行銷實效，徹底打開你的社群行銷力！
+							.metas MAY 26, 2016 BY 奧革士
+				.col-md-4
+					a.post
+						.thumbnail(style='background-image: url(images/posts/3.png)')
+							.tag.tag3 產品設計
+						.intro
+							h3 Sketch 小技巧 - 使用幫助選單功能加快設計速度
+							p 各種社群媒體擁有截然不同的特性，好的社群經營者懂得釐清行銷目的，交叉活用工具，創造績效。徹底理解社群奧義，不再被工具遷著鼻子走，聰明經營社群、創造行銷實效，徹底打開你的社群行銷力！
+							.metas MAY 26, 2016 BY 奧革士
+
+		section.cta.mac-devices
+			.content
+				h2 需要 UI / UX 設計上的協助嗎？<br>我們期待與您聊聊彼此的想法！
+				.marginBottom-m
+				a.button.button-l.button-primary(href="/contactus") 聯絡我們
+				.marginBottom-m
+				p 您有專案時程或預算上的問題嗎？<br class="hidden-md hidden-sm hidden-lg">
+					a(href='/qa') 查看常見問題問與答
+					| 。
+	//- section.cta
+	//- 	h2 需要 UI / UX 設計上的協助嗎？<br>我們期待與您聊聊彼此的想法！
+	//- 	.marginBottom-m
+	//- 	a.button.button-l.button-primary(href="/contactus") 聯絡我們
+	//- 	.marginBottom-m
+	//- 	p 您有專案時程或預算上的問題嗎？查看
+	//- 		a(href='#') 常見問題問與答
+	//- 		| 。
+
+block js
+	//- script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js')
+	//- script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.js')
+	script(src='/js/angular-google-analytics.min.js')
+	script(src='/js/mousetrap.js')
+	script(src='/js/wMousetrap.js')
+	script(src='/js/is.min.js')
+	script(src="/js/jquery.scrolldepth.min.js")
+	script(src="/js/landinga.js")
+	script.
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId				:'YOUR_APP_ID', // App ID
+				channelUrl	: '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File
+				status			: true, // check login status
+				cookies			: true, // enable cookies to allow the server to access the session
+				xfbml				: true  // parse XFBML
+			});
+		};
+		// Load the SDK Asynchronously
+		(function(d){
+			var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+			if (d.getElementById(id)) {return;}
+			js = d.createElement('script'); js.id = id; js.async = true;
+			js.src = "https://connect.facebook.net/zh_TW/all.js";
+			ref.parentNode.insertBefore(js, ref);
+		}(document));

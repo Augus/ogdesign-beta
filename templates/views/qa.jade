@@ -1,0 +1,124 @@
+extends ../layouts/default
+
+
+block opengraph
+	//- meta(property='fb:app_id', content='138566025676')
+	title= title || '常見問題 | 奧革設計 - 創業公司的設計夥伴'
+	meta(name="description", content="奧革設計是一家使用者介面設計及使用者經驗諮詢公司，我們擅長透過設計新思維創造最好的產品體驗。")
+	meta(name="keywords", content="網頁設計,App設計,使用者經驗設計,網站開發,設計顧問,設計諮詢")
+	meta(property='og:site_name', content='奧革設計 - 創業公司的設計夥伴')
+	meta(property='og:type', content='website')
+	//- meta(property='og:url', content='')
+	meta(property='og:title', content='奧革設計 - 創業公司的設計夥伴')
+	meta(property='og:description', content='奧革設計是一家使用者介面設計及使用者經驗諮詢公司，我們擅長透過設計新思維創造最好的產品體驗。')
+	meta(property='og:image', content='http://www.ogdesign.tw/images/home-cover.jpg')
+	meta(property='og:locale', content='zh_TW')
+	base(href="/#")
+
+block content
+	.qa-page(ng-controller="QAController")
+		.banner.medium(style='background-image: url(images/bg.jpg)')
+			.container.textAlign-center
+				.info
+					h2.quote.fontWeight-regular 我們整理了一些常見問題<br>瞭解彼此可能的合作方式
+		
+		section.qas
+			.container
+				.qa(ng-class="{'expand' : expand1}")
+					h2(ng-click="expand1 = !expand1") 一、奧革能為您提供什麼服務？
+					i.material-icons keyboard_arrow_down
+					.qa-content
+						p 目前除了 Web 前端開發以外，並沒有提供程式開發的服務。因為程式開發和 UX/UI 設計的職能屬性很不相同。<b>UX 與 UI 設計著重在產品應該做什麼功能、如何規劃操作流程才會順暢、視覺要如何呈現等。</b>通常奧革的客戶都有自己的 RD 或配合的開發廠商，因此我們才能把更多的心力放在如何做對的事情。我們有很多跟開發團隊配合的經驗，並提供完整的規格文件，可以跟企業內部或外部的 RD 合作無礙，讓設計與最終產品的結果一致。
+						p 如果是 Web 的 UI ，我們則會負責前端的 HTML 頁面和 CSS 程式碼。如此 RD 只要依據我們前面跟客戶溝通或訪談確認的規格文件與設計圖，聚焦在把程式功能做好並提升效能即可。 如果客戶沒有內部的開發團隊，我們也可以跟您指定的開發廠商合作開發，或是由我們幫您介紹合適的程式開發廠商，你可以<a href="/process">查看我們的設計流程</a>瞭解更多產品設計流程細節。
+				.qa(ng-class="{'expand' : expand2}")
+					h2(ng-click="expand2 = !expand2") 二、專案通常會做多久？
+					i.material-icons keyboard_arrow_down
+					.qa-content
+						p 目前除了 Web 前端開發以外，並沒有提供程式開發的服務。因為程式開發和 UX/UI 設計的職能屬性很不相同。<b>UX 與 UI 設計著重在產品應該做什麼功能、如何規劃操作流程才會順暢、視覺要如何呈現等。</b>通常奧革的客戶都有自己的 RD 或配合的開發廠商，因此我們才能把更多的心力放在如何做對的事情。我們有很多跟開發團隊配合的經驗，並提供完整的規格文件，可以跟企業內部或外部的 RD 合作無礙，讓設計與最終產品的結果一致。
+						p 如果是 Web 的 UI ，我們則會負責前端的 HTML 頁面和 CSS 程式碼。如此 RD 只要依據我們前面跟客戶溝通或訪談確認的規格文件與設計圖，聚焦在把程式功能做好並提升效能即可。 如果客戶沒有內部的開發團隊，我們也可以跟您指定的開發廠商合作開發，或是由我們幫您介紹合適的程式開發廠商，你可以<a href="/process">查看我們的設計流程</a>瞭解更多產品設計流程細節。
+				.qa(ng-class="{'expand' : expand3}")
+					h2(ng-click="expand3 = !expand3") 三、該怎麼開始與奧革合作？
+					i.material-icons keyboard_arrow_down
+					.qa-content
+						p 目前除了 Web 前端開發以外，並沒有提供程式開發的服務。因為程式開發和 UX/UI 設計的職能屬性很不相同。<b>UX 與 UI 設計著重在產品應該做什麼功能、如何規劃操作流程才會順暢、視覺要如何呈現等。</b>通常奧革的客戶都有自己的 RD 或配合的開發廠商，因此我們才能把更多的心力放在如何做對的事情。我們有很多跟開發團隊配合的經驗，並提供完整的規格文件，可以跟企業內部或外部的 RD 合作無礙，讓設計與最終產品的結果一致。
+						p 如果是 Web 的 UI ，我們則會負責前端的 HTML 頁面和 CSS 程式碼。如此 RD 只要依據我們前面跟客戶溝通或訪談確認的規格文件與設計圖，聚焦在把程式功能做好並提升效能即可。 如果客戶沒有內部的開發團隊，我們也可以跟您指定的開發廠商合作開發，或是由我們幫您介紹合適的程式開發廠商，你可以<a href="/process">查看我們的設計流程</a>瞭解更多產品設計流程細節。
+				.qa(ng-class="{'expand' : expand4}")
+					h2(ng-click="expand4 = !expand4") 四、該怎麼開始與奧革合作？
+					i.material-icons keyboard_arrow_down
+					.qa-content
+						p 目前除了 Web 前端開發以外，並沒有提供程式開發的服務。因為程式開發和 UX/UI 設計的職能屬性很不相同。<b>UX 與 UI 設計著重在產品應該做什麼功能、如何規劃操作流程才會順暢、視覺要如何呈現等。</b>通常奧革的客戶都有自己的 RD 或配合的開發廠商，因此我們才能把更多的心力放在如何做對的事情。我們有很多跟開發團隊配合的經驗，並提供完整的規格文件，可以跟企業內部或外部的 RD 合作無礙，讓設計與最終產品的結果一致。
+						p 如果是 Web 的 UI ，我們則會負責前端的 HTML 頁面和 CSS 程式碼。如此 RD 只要依據我們前面跟客戶溝通或訪談確認的規格文件與設計圖，聚焦在把程式功能做好並提升效能即可。 如果客戶沒有內部的開發團隊，我們也可以跟您指定的開發廠商合作開發，或是由我們幫您介紹合適的程式開發廠商，你可以<a href="/process">查看我們的設計流程</a>瞭解更多產品設計流程細節。
+				.qa(ng-class="{'expand' : expand5}")
+					h2(ng-click="expand5 = !expand5") 五、會包含程式設計與開發嗎？
+					i.material-icons keyboard_arrow_down
+					.qa-content
+						p 目前除了 Web 前端開發以外，並沒有提供程式開發的服務。因為程式開發和 UX/UI 設計的職能屬性很不相同。<b>UX 與 UI 設計著重在產品應該做什麼功能、如何規劃操作流程才會順暢、視覺要如何呈現等。</b>通常奧革的客戶都有自己的 RD 或配合的開發廠商，因此我們才能把更多的心力放在如何做對的事情。我們有很多跟開發團隊配合的經驗，並提供完整的規格文件，可以跟企業內部或外部的 RD 合作無礙，讓設計與最終產品的結果一致。
+						p 如果是 Web 的 UI ，我們則會負責前端的 HTML 頁面和 CSS 程式碼。如此 RD 只要依據我們前面跟客戶溝通或訪談確認的規格文件與設計圖，聚焦在把程式功能做好並提升效能即可。 如果客戶沒有內部的開發團隊，我們也可以跟您指定的開發廠商合作開發，或是由我們幫您介紹合適的程式開發廠商，你可以<a href="/process">查看我們的設計流程</a>瞭解更多產品設計流程細節。
+				.qa(ng-class="{'expand' : expand6}")
+					h2(ng-click="expand6 = !expand6") 六、費用怎麼算？
+					i.material-icons keyboard_arrow_down
+					.qa-content
+						p 目前除了 Web 前端開發以外，並沒有提供程式開發的服務。因為程式開發和 UX/UI 設計的職能屬性很不相同。<b>UX 與 UI 設計著重在產品應該做什麼功能、如何規劃操作流程才會順暢、視覺要如何呈現等。</b>通常奧革的客戶都有自己的 RD 或配合的開發廠商，因此我們才能把更多的心力放在如何做對的事情。我們有很多跟開發團隊配合的經驗，並提供完整的規格文件，可以跟企業內部或外部的 RD 合作無礙，讓設計與最終產品的結果一致。
+						p 如果是 Web 的 UI ，我們則會負責前端的 HTML 頁面和 CSS 程式碼。如此 RD 只要依據我們前面跟客戶溝通或訪談確認的規格文件與設計圖，聚焦在把程式功能做好並提升效能即可。 如果客戶沒有內部的開發團隊，我們也可以跟您指定的開發廠商合作開發，或是由我們幫您介紹合適的程式開發廠商，你可以<a href="/process">查看我們的設計流程</a>瞭解更多產品設計流程細節。
+				.qa(ng-class="{'expand' : expand7}")
+					h2(ng-click="expand7 = !expand7") 七、預算有限的情況該怎麼辦？
+					i.material-icons keyboard_arrow_down
+					.qa-content
+						p 目前除了 Web 前端開發以外，並沒有提供程式開發的服務。因為程式開發和 UX/UI 設計的職能屬性很不相同。<b>UX 與 UI 設計著重在產品應該做什麼功能、如何規劃操作流程才會順暢、視覺要如何呈現等。</b>通常奧革的客戶都有自己的 RD 或配合的開發廠商，因此我們才能把更多的心力放在如何做對的事情。我們有很多跟開發團隊配合的經驗，並提供完整的規格文件，可以跟企業內部或外部的 RD 合作無礙，讓設計與最終產品的結果一致。
+						p 如果是 Web 的 UI ，我們則會負責前端的 HTML 頁面和 CSS 程式碼。如此 RD 只要依據我們前面跟客戶溝通或訪談確認的規格文件與設計圖，聚焦在把程式功能做好並提升效能即可。 如果客戶沒有內部的開發團隊，我們也可以跟您指定的開發廠商合作開發，或是由我們幫您介紹合適的程式開發廠商，你可以<a href="/process">查看我們的設計流程</a>瞭解更多產品設計流程細節。
+				.qa(ng-class="{'expand' : expand8}")
+					h2(ng-click="expand8 = !expand8") 八、詢價時，要提供奧革哪些資料？
+					i.material-icons keyboard_arrow_down
+					.qa-content
+						p 目前除了 Web 前端開發以外，並沒有提供程式開發的服務。因為程式開發和 UX/UI 設計的職能屬性很不相同。<b>UX 與 UI 設計著重在產品應該做什麼功能、如何規劃操作流程才會順暢、視覺要如何呈現等。</b>通常奧革的客戶都有自己的 RD 或配合的開發廠商，因此我們才能把更多的心力放在如何做對的事情。我們有很多跟開發團隊配合的經驗，並提供完整的規格文件，可以跟企業內部或外部的 RD 合作無礙，讓設計與最終產品的結果一致。
+						p 如果是 Web 的 UI ，我們則會負責前端的 HTML 頁面和 CSS 程式碼。如此 RD 只要依據我們前面跟客戶溝通或訪談確認的規格文件與設計圖，聚焦在把程式功能做好並提升效能即可。 如果客戶沒有內部的開發團隊，我們也可以跟您指定的開發廠商合作開發，或是由我們幫您介紹合適的程式開發廠商，你可以<a href="/process">查看我們的設計流程</a>瞭解更多產品設計流程細節。
+				.qa(ng-class="{'expand' : expand9}")
+					h2(ng-click="expand9 = !expand9") 九、需要先付定金嗎？
+					i.material-icons keyboard_arrow_down
+					.qa-content
+						p 目前除了 Web 前端開發以外，並沒有提供程式開發的服務。因為程式開發和 UX/UI 設計的職能屬性很不相同。<b>UX 與 UI 設計著重在產品應該做什麼功能、如何規劃操作流程才會順暢、視覺要如何呈現等。</b>通常奧革的客戶都有自己的 RD 或配合的開發廠商，因此我們才能把更多的心力放在如何做對的事情。我們有很多跟開發團隊配合的經驗，並提供完整的規格文件，可以跟企業內部或外部的 RD 合作無礙，讓設計與最終產品的結果一致。
+						p 如果是 Web 的 UI ，我們則會負責前端的 HTML 頁面和 CSS 程式碼。如此 RD 只要依據我們前面跟客戶溝通或訪談確認的規格文件與設計圖，聚焦在把程式功能做好並提升效能即可。 如果客戶沒有內部的開發團隊，我們也可以跟您指定的開發廠商合作開發，或是由我們幫您介紹合適的程式開發廠商，你可以<a href="/process">查看我們的設計流程</a>瞭解更多產品設計流程細節。
+				.qa(ng-class="{'expand' : expand10}")
+					h2(ng-click="expand10 = !expand10") 十、網站完成後是否會提供檔案？
+					i.material-icons keyboard_arrow_down
+					.qa-content
+						p 目前除了 Web 前端開發以外，並沒有提供程式開發的服務。因為程式開發和 UX/UI 設計的職能屬性很不相同。<b>UX 與 UI 設計著重在產品應該做什麼功能、如何規劃操作流程才會順暢、視覺要如何呈現等。</b>通常奧革的客戶都有自己的 RD 或配合的開發廠商，因此我們才能把更多的心力放在如何做對的事情。我們有很多跟開發團隊配合的經驗，並提供完整的規格文件，可以跟企業內部或外部的 RD 合作無礙，讓設計與最終產品的結果一致。
+						p 如果是 Web 的 UI ，我們則會負責前端的 HTML 頁面和 CSS 程式碼。如此 RD 只要依據我們前面跟客戶溝通或訪談確認的規格文件與設計圖，聚焦在把程式功能做好並提升效能即可。 如果客戶沒有內部的開發團隊，我們也可以跟您指定的開發廠商合作開發，或是由我們幫您介紹合適的程式開發廠商，你可以<a href="/process">查看我們的設計流程</a>瞭解更多產品設計流程細節。
+				.qa(ng-class="{'expand' : expand11}")
+					h2(ng-click="expand11 = !expand11") 十一、有後續維護和更新嗎？
+					i.material-icons keyboard_arrow_down
+					.qa-content
+						p 目前除了 Web 前端開發以外，並沒有提供程式開發的服務。因為程式開發和 UX/UI 設計的職能屬性很不相同。<b>UX 與 UI 設計著重在產品應該做什麼功能、如何規劃操作流程才會順暢、視覺要如何呈現等。</b>通常奧革的客戶都有自己的 RD 或配合的開發廠商，因此我們才能把更多的心力放在如何做對的事情。我們有很多跟開發團隊配合的經驗，並提供完整的規格文件，可以跟企業內部或外部的 RD 合作無礙，讓設計與最終產品的結果一致。
+						p 如果是 Web 的 UI ，我們則會負責前端的 HTML 頁面和 CSS 程式碼。如此 RD 只要依據我們前面跟客戶溝通或訪談確認的規格文件與設計圖，聚焦在把程式功能做好並提升效能即可。 如果客戶沒有內部的開發團隊，我們也可以跟您指定的開發廠商合作開發，或是由我們幫您介紹合適的程式開發廠商，你可以<a href="/process">查看我們的設計流程</a>瞭解更多產品設計流程細節。
+
+		section.cta.mac-devices
+			.content
+				h2 需要 UI / UX 設計上的協助嗎？<br>我們期待與您聊聊彼此的想法！
+				.marginBottom-m
+				a.button.button-l.button-primary(href="/contactus") 聯絡我們
+				.marginBottom-m
+				p 您有專案時程或預算上的問題嗎？查看
+					a(href='/qa') 常見問題問與答
+					| 。
+
+block js
+	script(src='/js/angular-google-analytics.min.js')
+	script(src='/js/controllers/qa.js')
+	script.
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId				:'YOUR_APP_ID', // App ID
+				channelUrl	: '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File
+				status			: true, // check login status
+				cookies			: true, // enable cookies to allow the server to access the session
+				xfbml				: true  // parse XFBML
+			});
+		};
+		// Load the SDK Asynchronously
+		(function(d){
+			var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+			if (d.getElementById(id)) {return;}
+			js = d.createElement('script'); js.id = id; js.async = true;
+			js.src = "https://connect.facebook.net/zh_TW/all.js";
+			ref.parentNode.insertBefore(js, ref);
+		}(document));

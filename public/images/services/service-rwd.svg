@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120px" height="120px" viewBox="0 0 120 120" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>service-rwd</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M60,0 C26.8632,0 0,26.8632 0,60 C0,93.1356 26.8632,120 60,120 C93.1356,120 120,93.1356 120,60 C120,26.8632 93.1356,0 60,0 L60,0 Z" id="path-1"></path>
+    </defs>
+    <g id="首頁" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="service-rwd">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Shape" fill="#CDEEF7" xlink:href="#path-1"></use>
+            <g id="seo-marketing-business-responsive-adaptive-design" mask="url(#mask-2)">
+                <g transform="translate(23.505155, 25.979381)" id="Group">
+                    <g>
+                        <g>
+                            <path d="M0,12.371134 L0,64.9484536 C0,66.6494845 1.3846518,68.0412371 3.077004,68.0412371 L70.7710919,68.0412371 C72.4695981,68.0412371 73.8480959,66.6556701 73.8480959,64.9484536 L73.8480959,12.371134 L0,12.371134 L0,12.371134 Z" id="Shape" fill="#F6F6F8"></path>
+                            <rect id="Rectangle-path" fill="#FFFFFF" x="6.15400799" y="12.371134" width="61.5400799" height="49.4845361"></rect>
+                            <g>
+                                <path d="M70.7710919,0 L3.077004,0 C1.37849779,0 0,1.38556701 0,3.09278351 L0,12.371134 L73.8480959,12.371134 L73.8480959,3.09278351 C73.8480959,1.38556701 72.4695981,0 70.7710919,0 L70.7710919,0 Z" id="Shape" fill="#C3C6CA"></path>
+                                <ellipse id="Oval" fill="#EF5F58" cx="6.15400799" cy="6.18556701" rx="3.077004" ry="3.09278351"></ellipse>
+                                <ellipse id="Oval" fill="#F7BC30" cx="15.38502" cy="6.18556701" rx="3.077004" ry="3.09278351"></ellipse>
+                                <ellipse id="Oval" fill="#6CBE47" cx="24.616032" cy="6.18556701" rx="3.077004" ry="3.09278351"></ellipse>
+                            </g>
+                        </g>
+                        <rect id="Rectangle-path" fill="#CDEEF7" x="12.308016" y="18.556701" width="49.232064" height="21.6494845"></rect>
+                        <rect id="Rectangle-path" fill="#59C6E5" x="12.308016" y="46.3917526" width="21.539028" height="6.18556701"></rect>
+                        <rect id="Rectangle-path" fill="#59C6E5" x="40.001052" y="46.3917526" width="21.539028" height="6.18556701"></rect>
+                    </g>
+                </g>
+            </g>
+            <g id="Group-40" transform="translate(66.804124, 54.432990)">
+                <path d="M37.9528719,0.824742268 L3.4904271,0.824742268 C1.91089838,0.824742268 0.618556701,2.12371134 0.618556701,3.71134021 L0.618556701,58.556701 C0.618556701,60.1443299 1.91089838,61.443299 3.4904271,61.443299 L37.9528719,61.443299 C39.5324006,61.443299 40.8247423,60.1443299 40.8247423,58.556701 L40.8247423,3.71134021 C40.8247423,2.12371134 39.5324006,0.824742268 37.9528719,0.824742268 L37.9528719,0.824742268 Z" id="Shape" fill="#2A2A2F"></path>
+                <rect id="Rectangle-path" fill="#FFFFFF" x="6.3622975" y="6.59793814" width="28.718704" height="43.2989691"></rect>
+                <rect id="Rectangle-path" fill="#CDEEF7" x="12.1060383" y="12.371134" width="17.2312224" height="20.2061856"></rect>
+                <rect id="Rectangle-path" fill="#59C6E5" x="12.1060383" y="38.3505155" width="17.2312224" height="5.77319588"></rect>
+                <ellipse id="Oval" fill="#787878" cx="20.7216495" cy="55.6701031" rx="2.8718704" ry="2.84907216"></ellipse>
+                <ellipse id="Oval" fill="#787878" cx="20.7216495" cy="55.6701031" rx="2.8718704" ry="2.88659794"></ellipse>
+            </g>
+        </g>
+    </g>
+</svg>

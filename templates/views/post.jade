@@ -1,0 +1,112 @@
+extends ../layouts/default
+
+block opengraph
+	meta(property='fb:app_id', content='138566025676')
+	title= data.post.title + ' | 奧革設計 - 創業公司的設計夥伴'
+	meta(property='og:site_name', content='奧革設計 - 創業公司的設計夥伴')
+	meta(property='og:title', content='#{data.post.title} | 奧革設計')
+	meta(property='og:description', content='#{data.post.content.brief}')
+	meta(property="og:type", content="article")
+	if (data.post.image)
+		meta(property='og:image', content='http:#{data.post.image.url}')
+	meta(property='og:locale', content='zh_TW')
+	if (data.post.author)
+		meta(name="author", content="#{data.post.author.name.first}")
+
+block content
+	.blog-page(ng-controller="BlogController", ng-init="init()")
+		.promote-post(style="background-image:url(#{data.post.image.url})")
+			.container.textAlign-center
+				.info
+					.metas
+						if data.post.categories && data.post.categories.length
+							.category(style="background-color: #{data.post.categories[0].color}") #{data.post.categories[0].name}
+						span.author #{data.post.author.name.first}
+						span.date
+							i.material-icons access_time
+							| #{data.post._.publishedDate.format('MMMM Do, YYYY').toUpperCase()} 
+					h2.quote.fontWeight-regular #{data.post.title}
+					p #{data.post.content.brief}
+		.post-content!= data.post.content.full
+		.post-share
+			h3.marginBotton-m 分享這篇文章
+			.shareaholic-canvas(data-app='share_buttons', data-app-id='24082972')
+			.author
+				.thumbnail(style="background-image: url(#{data.post.author.image.url})")
+				.name #{data.post.author.name.first}
+				if data.post.author.bio
+					.bio #{data.post.author.bio}
+		//- .post-content
+		//- 	blockquote 但這些類比似乎都難以說明人類自身 — 特別是那個讓人產生種種心智活動的腦到底是怎麼一回事，即使將所有的類比都加起來，也無法道盡腦的真相，一直在努力嚐試瞭解自然及自身。
+		//- 	p 人類自從有了意識後，一直在努力嚐試瞭解自然及自身，在開始時，人類將自身和自然現象做某種類比，譬如「人有男女」就像「天有日月」，後來人類又將自身和自己所發明的器物、制度做某種類比，譬如：「人就像機器」、「腦就像時鐘」「大腦結構就像政府組織」、「<a href="#">腦神經間的連繫就像電話交換台</a>」、「腦就像電腦」等等。但這些類比似乎都難以說明人類自身 — 特別是那個讓人產生種種心智活動的腦到底是怎麼一回事，即使將所有的類比都加起來，也無法道盡腦的真相，「全體」依然大於「部分之總和」。
+		//- 	p 人類自從有了意識後，一直在努力嚐試瞭解自然及自身，在開始時，人類將自身和自然現象做某種類比，譬如「人有男女」就像「天有日月」，後來人類又將自身和自己所發明的器物、制度做某種類比，譬如：「人就像機器」、「腦就像時鐘」「大腦結構就像政府組織」、「腦神經間的連繫就像電話交換台」、「腦就像電腦」等等。但這些類比似乎都難以說明人類自身 — 特別是那個讓人產生種種心智活動的腦到底是怎麼一回事，即使將所有的類比都加起來，也無法道盡腦的真相，「全體」依然大於「部分之總和」。
+		//- 	p 人類自從有了意識後，一直在努力嚐試瞭解自然及自身，在開始時，人類將自身和自然現象做某種類比，譬如「人有男女」就像「天有日月」，後來人類又將自身和自己所發明的器物、制度做某種類比，<mark>譬如：「人就像機器」、「腦就像時鐘」「大腦結構就像政府組織」、「腦神經間的連繫就像電話交換台」、「腦就像電腦」等等。但這些類比似乎都難以說明人類自身 — 特別是那個讓人產生種種心智活動的腦到底是怎麼一回事，即使將所有的類比都加起來，也無法道盡腦的真相，「全體」依然大於「部分之總和」</mark>。
+		//- 	blockquote.emphasize 人類自從有了意識後，一直在努力嚐試瞭解自然及自身，在開始時，人類將自身和自然現象做某種類比
+		//- 	h2 如何尋找並分析你的產品潛在競爭者
+		//- 	p 一種將虛擬資訊擴增到現實空間中的技術，它不是要取代現實空間，而是在現實空間中添加一個虛擬物件，藉由攝影機的辨識技術與電腦程式的結合，當設定好的圖片出現在鏡頭裡面，就會出現對應的虛擬物件。
+		//- 	iframe.ratio16-10(width="560" height="315" src="https://www.youtube.com/embed/WlYC8gDvutc" frameborder="0" allowfullscreen)
+		//- 	h3 每次設計輸入按鈕時查詢一下是否犯了錯誤
+		//- 	p AR是這三種實境技術中最早開始廣為應用在行銷、廣告業中，AR遊戲最大的不同點是: 虛擬的內容和互動仍止於虛擬之中，但可以透過營幕等輔助裝置的呈現讓你看到虛擬和真實世界的結合狀態。近期最有名的遊戲案例則是神奇寶貝GO 。這款AR遊戲是由任天堂、神奇寶貝公司和Niantic, Inc.共同合作開發，預計於2016年iOS和Android平台上發佈。該遊戲同時配有神奇寶貝 Go Plus 通知器，利用藍牙連接手機，在附近有神奇寶貝時推送通知給玩家。
+		//- 	ol
+		//- 		li <b>隱藏的導覽</b><br>人類自從有了意識後，一直在努力嚐試瞭解自然及自身，在開始時，人類將自身和自然現象做某種類比，譬如「人有男女」就像「天有日月」，後來人類又將自身和自己所發明的器物、制度做某種類比，譬如：「人就像機器」即使將所有的類比都加起來，也無法道盡腦的真相，「全體」依然大於「部分之總和」。
+		//- 		li <b>如何尋找並分析你的產品潛在競爭者</b><br>人類自從有了意識後，一直在努力嚐試瞭解自然及自身，在開始時，人類將自身和自然現象做某種類比，<mark>譬如「人有男女」就像「天有日月」，後來人類又將自身和自己所發明的器物、制度做某種類比，譬如：「人就像機器」即使將所有的類比都加起來，也無法道盡腦的真相，「全體」依然大於「部分之總和」</mark>。
+		//- 	img(src="/images/vr.jpg", alt="")
+		//- 	ul
+		//- 		li <b>隱藏的導覽</b><br>人類自從有了意識後，一直在努力嚐試瞭解自然及自身，在開始時，人類將自身和自然現象做某種類比，譬如「人有男女」就像「天有日月」，後來人類又將自身和自己所發明的器物、制度做某種類比，譬如：「人就像機器」即使將所有的類比都加起來，也無法道盡腦的真相，「全體」依然大於「部分之總和」。
+		//- 		li <b>如何尋找並分析你的產品潛在競爭者</b><br>人類自從有了意識後，一直在努力嚐試瞭解自然及自身，在開始時，人類將自身和自然現象做某種類比，譬如「人有男女」就像「天有日月」，後來人類又將自身和自己所發明的器物、制度做某種類比，譬如：「人就像機器」即使將所有的類比都加起來，也無法道盡腦的真相，「全體」依然大於「部分之總和」。
+		//- 	p 經過以上的定義說明和搭配影片例證，大家是否有更清楚認識這三種實境技術了呢? 之後會有更多遊戲案例介紹，也請大家鎖定VR幼幼班 Mr.G老師的專欄網誌唷!
+		
+		if data.recommends.length > 0
+			section.grey
+				.info
+					h3 你可能還會喜歡這些文章
+					.marginBottom-l
+				.row.posts
+					each post in data.recommends
+						.col-md-4
+							a.post(href="/blog/post/#{post.slug}")
+								.thumbnail(style='background-image: url(#{post.image.url})')
+									if post.categories && post.categories.length
+										.tag(style="background-color: #{post.categories[0].color}") #{post.categories[0].name}
+								.intro
+									h3 #{post.title}
+									p #{post.content.brief}
+									.metas #{post._.publishedDate.format('MMMM Do, YYYY').toUpperCase()}  BY #{post.author.name.first}
+
+		section.cta.mac-devices
+			.content
+				h2 需要 UI / UX 設計上的協助嗎？<br>我們期待與您聊聊彼此的想法！
+				.marginBottom-m
+				a.button.button-l.button-primary(href="/contactus") 聯絡我們
+				.marginBottom-m
+				p 您有專案時程或預算上的問題嗎？查看
+					a(href='/qa') 常見問題問與答
+					| 。
+
+		//- section.cta.suscribe.grey
+		//- 	h2 如果你喜歡我們的分享，關注我們的部落格， <br>隨時掌握重要的設計的資訊！
+		//- 	.marginBottom-m
+		//- 	.container
+		//- 		.row.top-md.center-md.suscribe-from
+		//- 			input.input-l(type="email", placeholder="輸入你的電子郵件")
+		//- 			a.button.button-l.button-primary 訂閱
+
+block js
+	script.
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId				:'YOUR_APP_ID', // App ID
+				channelUrl	: '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File
+				status			: true, // check login status
+				cookies			: true, // enable cookies to allow the server to access the session
+				xfbml				: true  // parse XFBML
+			});
+		};
+		// Load the SDK Asynchronously
+		(function(d){
+			var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+			if (d.getElementById(id)) {return;}
+			js = d.createElement('script'); js.id = id; js.async = true;
+			js.src = "https://connect.facebook.net/zh_TW/all.js";
+			ref.parentNode.insertBefore(js, ref);
+		}(document));

@@ -1,0 +1,86 @@
+extends ../layouts/default
+
+block opengraph
+	title= title || '部落格 | 奧革設計 - 創業公司的設計夥伴'
+	meta(property='og:site_name', content='奧革設計 - 創業公司的設計夥伴')
+	meta(property='og:type', content='website')
+	meta(property='og:url', content='')
+	meta(property='og:title', content='部落格 | 奧革設計 - 創業公司的設計夥伴')
+	meta(property='og:description', content='精心整理了各式各樣的設計資源，有各種靈感、資源、工具，設計師的你別錯過了！')
+	meta(property='og:image', content='/images/home-cover.jpg')
+	meta(property='og:locale', content='zh_TW')
+
+block content
+	.blog-page(id="category" category-id=(data.categoryId)? data.categoryId : "" ng-controller="BlogController", ng-init="init()")
+		ks-swiper-container(class="swiper-wrapper promote-posts" swiper="swiper" initial-slide="0" loop="true" autoplay="5000" show-nav-buttons="true" slides-per-view="1" space-between="0" override-parameters="{simulateTouch: true}" pagination-is-active="true")
+			each recommend in data.recommends
+				ks-swiper-slide.swiper-slide
+					.promote-post(style='background-image: url(#{recommend.image.url})')
+						.container.textAlign-center
+							.info
+								.metas
+									if recommend.categories.length > 0
+										.category(style="background-color: #{recommend.categories[0].color}") #{recommend.categories[0].name}
+									span.author #{recommend.author.name.first}
+									span.date
+										i.material-icons access_time
+										| #{recommend._.publishedDate.format('MMMM Do, YYYY')}
+								h2.quote.fontWeight-regular #{recommend.title}
+								p #{recommend.content.brief}
+								a.button.button-ghost.button-rounded.button-lg.button-white.button-hover-primary(href="/blog/post/#{recommend.slug}") 閱讀全文
+
+		.tabs
+			a.tab(class=(!data.categoryId)? "active" : "", href="/blog") 全部
+			each category in data.categories
+				a.tab(class=(data.categoryId==category._id)? "active" : "", href="/blog/#{category._id}") #{category.name}
+
+		//- 給爬蟲看的
+		.post-list.hidden-crawler
+			each post in data.posts
+				a.post(href="/blog/post/#{post.slug}")
+					img(src="#{post.image.url}", alt="#{post.title}")
+					h3 #{post.title}
+					p #{post.content.brief}
+					.metas #{post._.publishedDate.format('MMMM Do, YYYY')} BY #{post.author.name.first}
+
+		.row.post-list
+			.col-md-4(ng-repeat="post in posts")
+				a.post(href="/blog/post/{{post.slug}}")
+					.thumbnail(style='background-image: url({{post.image.url}})')
+					.intro
+						h3 {{post.title}}
+						p {{post.content.brief}}
+						.metas {{post.publishedDate | date:'MMM d, y'}} BY {{post.author.name.first}}
+			
+		.load-more(ng-click="loadPosts()" ng-show="!noMorePost")
+			i.material-icons more_horiz
+
+		section.cta.suscribe.grey
+			h2 如果你喜歡我們的分享，關注我們的部落格， <br>隨時掌握重要的設計的資訊！
+			.marginBottom-m
+			.container
+				.row.top-md.center-md.suscribe-from
+					input.input-l(type="email", placeholder="輸入你的電子郵件")
+					a.button.button-l.button-primary 訂閱
+
+block js
+	script(src='/js/ng-infinite-scroll.min.js')
+	script(src='/js/blog.js')
+	script.
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId				:'YOUR_APP_ID', // App ID
+				channelUrl	: '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File
+				status			: true, // check login status
+				cookies			: true, // enable cookies to allow the server to access the session
+				xfbml				: true  // parse XFBML
+			});
+		};
+		// Load the SDK Asynchronously
+		(function(d){
+			var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+			if (d.getElementById(id)) {return;}
+			js = d.createElement('script'); js.id = id; js.async = true;
+			js.src = "https://connect.facebook.net/zh_TW/all.js";
+			ref.parentNode.insertBefore(js, ref);
+		}(document));

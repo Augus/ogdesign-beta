@@ -1,0 +1,133 @@
+extends ../layouts/default
+
+
+block opengraph
+	//- meta(property='fb:app_id', content='138566025676')
+	title= title || '合作聯繫 | 奧革設計 - 創業公司的設計夥伴'
+	meta(name="description", content="奧革設計是一家使用者介面設計及使用者經驗諮詢公司，我們擅長透過設計新思維創造最好的產品體驗。")
+	meta(name="keywords", content="網頁設計,App設計,使用者經驗設計,網站開發,設計顧問,設計諮詢")
+	meta(property='og:site_name', content='奧革設計 - 創業公司的設計夥伴')
+	meta(property='og:type', content='website')
+	//- meta(property='og:url', content='')
+	meta(property='og:title', content='奧革設計 - 創業公司的設計夥伴')
+	meta(property='og:description', content='奧革設計是一家使用者介面設計及使用者經驗諮詢公司，我們擅長透過設計新思維創造最好的產品體驗。')
+	meta(property='og:image', content='http://www.ogdesign.tw/images/home-cover.jpg')
+	meta(property='og:locale', content='zh_TW')
+	base(href="/#")
+
+block content
+	.contactus-page
+		.banner.medium(style='background-image: url(images/bg5.jpg)')
+			.container.textAlign-center
+				.info
+					h2.quote.fontWeight-regular 有興趣跟我們合作嗎？<br>我們期待與您聊聊彼此的想法！
+		.paper-content
+			.paper(ng-show="isSendeed")
+				.submit-result
+					img(src="images/contactus-success.svg", alt="")
+					h2 表單成功送出
+					p 感謝你撥冗填寫這份表單，我們會在 48 小時內主動與您聯繫，期待與你討論彼此的想法。
+					a.button.button-primary.button-m.button-rounded(href="/") 返回首頁
+			.paper(ng-show="!isSendeed")
+				.row
+					.col-md-6.col-xs-12
+						label.input-wrap.input-block(for="name", ng-class="{'active': nameFoucs}")
+							label.field(for="name") 稱呼
+							input.input-block.input-xs(id="name" type="text", placeholder="先生/小姐" ng-focus="nameFoucs=true", ng-blur="nameFoucs=false")
+					.col-md-6.col-xs-12
+						label.input-wrap.input-block(for="email", ng-class="{'active': emailFoucs}")
+							label.field(for="email") 電子郵件
+							input.input-block.input-xs(id="email" type="email", placeholder="name@service.com" ng-focus="emailFoucs=true", ng-blur="emailFoucs=false")
+				.row
+					.col-md-12
+						.input-wrap.input-block
+							label.field 需求項目（可複選）
+							label.control.checkbox
+								input(type="checkbox" checked="" value="on")
+								span.control-indicator
+								| 網站規劃與設計
+							label.control.checkbox
+								input(type="checkbox")
+								span.control-indicator
+								| 網站建置
+							label.control.checkbox
+								input(type="checkbox")
+								span.control-indicator
+								| APP / 軟體規劃與設計
+							label.control.checkbox
+								input(type="checkbox")
+								span.control-indicator
+								| 設計顧問諮詢
+							label.control.checkbox
+								input(type="checkbox")
+								span.control-indicator
+								| 其他
+				.row
+					.col-md-12
+						.input-wrap.input-block
+							label.field 如何得知奧革設計（可複選）
+							label.control.checkbox
+								input(type="checkbox")
+								span.control-indicator
+								| Google 搜尋
+							label.control.checkbox
+								input(type="checkbox")
+								span.control-indicator
+								| Facebook 粉絲團
+							label.control.checkbox
+								input(type="checkbox")
+								span.control-indicator
+								| 朋友介紹
+							label.control.checkbox
+								input(type="checkbox")
+								span.control-indicator
+								| 其他
+				.row
+					.col-md-12
+						textarea(placeholder="告訴我們你的需求或疑問")
+				.row
+					.col-md-12
+						h6 勾選你比較喜歡的設計風格（選填）
+					.col-md-4
+						.style-case(style='background-image: url(images/showcases/showcase-1.jpg)' ng-click="case1Selected = !case1Selected" ng-class="{'selected' : case1Selected}")
+					.col-md-4
+						.style-case(style='background-image: url(images/showcases/showcase-2.jpg)' ng-click="case2Selected = !case2Selected" ng-class="{'selected' : case2Selected}")
+					.col-md-4
+						.style-case(style='background-image: url(images/showcases/showcase-3.jpg)' ng-click="case3Selected = !case3Selected" ng-class="{'selected' : case3Selected}")
+					.col-md-4
+						.style-case(style='background-image: url(images/showcases/showcase-4.jpg)' ng-click="case4Selected = !case4Selected" ng-class="{'selected' : case4Selected}")
+					.col-md-4
+						.style-case(style='background-image: url(images/showcases/showcase-5.jpg)' ng-click="case5Selected = !case5Selected" ng-class="{'selected' : case5Selected}")
+					.col-md-4
+						.style-case(style='background-image: url(images/showcases/showcase-6.jpg)' ng-click="case6Selected = !case6Selected" ng-class="{'selected' : case6Selected}")
+				.paddingTop-l
+				.row.center-md
+					.button.button-primary.button-lg.submit-button(ng-click="isSendeed = true") 送出表單
+
+block js
+	//- script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js')
+	//- script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.js')
+	script(src='/js/angular-google-analytics.min.js')
+	script(src='/js/mousetrap.js')
+	script(src='/js/wMousetrap.js')
+	script(src='/js/is.min.js')
+	script(src="/js/jquery.scrolldepth.min.js")
+	script(src="/js/landinga.js")
+	script.
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId				:'YOUR_APP_ID', // App ID
+				channelUrl	: '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File
+				status			: true, // check login status
+				cookies			: true, // enable cookies to allow the server to access the session
+				xfbml				: true  // parse XFBML
+			});
+		};
+		// Load the SDK Asynchronously
+		(function(d){
+			var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+			if (d.getElementById(id)) {return;}
+			js = d.createElement('script'); js.id = id; js.async = true;
+			js.src = "https://connect.facebook.net/zh_TW/all.js";
+			ref.parentNode.insertBefore(js, ref);
+		}(document));

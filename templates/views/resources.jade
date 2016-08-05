@@ -1,0 +1,90 @@
+extends ../layouts/default
+
+block opengraph
+	//- meta(property='fb:app_id', content='138566025676')
+	title= title || '設計資源總匯 - 奧革設計 - 創業公司的設計夥伴'
+	meta(name="keywords", content="設計資源,創業資源,靈感")
+	meta(property='og:site_name', content='奧革設計 - 創業公司的設計夥伴')
+	meta(property='og:type', content='website')
+	//- meta(property='og:url', content='http://www.ogdesign.tw/resources')
+	meta(property='og:title', content='設計資源總匯 - 奧革設計')
+	meta(property='og:description', content='奧革設計團隊精心整理的設計師必備設計資源，收藏各式各樣的靈感、配色、資源、設計工具、免費圖庫等，設計師趕快把他收藏到書籤吧！')
+	meta(property='og:image', content='http://www.ogdesign.tw/images/cover.jpg')
+	meta(property='og:locale', content='zh_TW')
+	meta(name="author", content="奧革士")
+
+block content
+
+	//- 給爬蟲看的
+	.row.resources.hidden-crawler
+		each resource in data.resources
+			a.resource(href="#{resource.url}", target="_blank")
+				img(src="#{resource.image.url}", alt="#{resource.title}")
+				if resource.publishedDate
+				.metas #{resource._.publishedDate.format('MMMM Do, YYYY')}
+				h3 #{resource.title}
+				p #{resource.description}
+				if resource.categories.length > 0
+					.tags
+						each category in resource.categories
+							.tag #{category.name}
+
+	.resources-page(ng-controller="ResourceController", ng-init="init()")
+		.container
+			.category-menu
+				ul
+					li(ng-click="filter()", ng-class="{'active': !currentCategory}")
+						span 全部
+						span.count {{resources.length}}
+					li(ng-repeat='category in categories' ng-class="{'active': category._id == currentCategory}" ng-click="filter(category)")
+						span {{category.name}}
+						span.count {{category.count}}
+			.resources-content
+				.row
+					.col-md-12.position-relative
+						input.input-block.search(type="text", placeholder='搜尋資源…（例如：靈感、工具、配色）', ng-model='keyword' ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 300, 'blur': 0 } }",  ng-keyup='onSearchKeyUp($event)', ng-focus="onSearchFocus($event)")
+						.social-share
+							.fb-like(data-href="https://www.facebook.com/ogdesign.tw", data-layout="button_count", data-action="like", data-show-faces="false", data-share="true", data-width="200", data-colorscheme="light", style="display: inline-block; color: #111D2D;  overflow: hidden; height: 20px; margin: 16px 0 12px 0;")
+				.row.resources(masonry masonry-options="{ transitionDuration: '600ms' }" load-images="false")
+					.col-sm-6.col-md-4.col-lg-3.masonry-brick(ng-repeat='resource in rs = (resources | filter: searchFilter | filter: categoryFilter) track by resource._id')
+						a.resource(href="{{resource.url}}", target="_blank")
+							.thumbnail(ng-if="resource.image", style="background-image: url({{resource.image.url}})")
+							.intro
+								.metas(ng-if="resource.publishedDate") {{resource.publishedDate | date:'MMM d, y'}}
+								h3 {{resource.title}}
+								p {{resource.description}}
+								.tags
+									.tag(ng-repeat="category in resource.categories", ng-click="$event.preventDefault();filter(category)")
+										span {{category.name}}
+										span(ng-if="$index < resource.categories.length - 1") 、
+
+	
+block js
+	script(src='/js/angular-google-analytics.min.js')
+	script(src='/js/is.min.js')
+	script(src='/js/mousetrap.js')
+	script(src='/js/wMousetrap.js')
+	script(src='/js/ngModal.js')
+	script(src='/js/resources.js')
+    
+	script.
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId				:'YOUR_APP_ID', // App ID
+				channelUrl	: '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File
+				status			: true, // check login status
+				cookies			: true, // enable cookies to allow the server to access the session
+				xfbml				: true  // parse XFBML
+			});
+		};
+		// Load the SDK Asynchronously
+		(function(d){
+			var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+			if (d.getElementById(id)) {return;}
+			js = d.createElement('script'); js.id = id; js.async = true;
+			js.src = "https://connect.facebook.net/zh_TW/all.js";
+			ref.parentNode.insertBefore(js, ref);
+		}(document));
+	
+
+
