@@ -27,12 +27,21 @@ Post.add({
 			return item._id + '-' + filename;
 		}
 	},
+	banner: { 
+		label: 'Banner',
+		type: Types.S3File,
+		filename: function(item, filename){
+			// 用object id作為文件名的前綴
+			return item._id + '-' + filename;
+		}
+	},
 	content: {
 		brief: { type: Types.Textarea, wysiwyg: false, height: 150, label: '文章摘要' },
 		extended: { type: Types.Html, wysiwyg: true, height: 400, label: '文章內文' }
 	},
 	categories: { type: Types.Relationship, ref: 'PostCategory', many: true, label: '分類' },
 	isRecommend: { type: Boolean, default: false, label: '首頁推薦' },
+	viewCount: { type: Number, default: 0, label: '觀看次數', noedit: false  },
 });
 
 Post.schema.virtual('content.full').get(function() {
