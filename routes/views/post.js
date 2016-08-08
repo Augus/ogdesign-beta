@@ -23,13 +23,20 @@ exports = module.exports = function(req, res) {
 			slug: locals.filters.post
 		}).populate('author categories');
 		
-		q.exec(function(err, result) {
-			locals.data.post = result;
-			var categories = result.categories.map(function (c) {
+		q.exec(function(err, post) {
+			locals.data.post = post;
+			if (err || !post) {
+				next(err);
+				return;
+			}
+			var categories = post.categories.map(function (c) {
 				return c._id;
 			});
 
-			keystone.list('Post').model.find({_id : {$ne: result._id}})
+			post.viewCount++;
+            post.save();
+
+			keystone.list('Post').model.find({_id : {$ne: post._id}})
 				.where('state', 'published')
 				.where('categories').in(categories)
 				.sort('-publishedDate')

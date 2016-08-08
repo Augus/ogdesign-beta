@@ -147,18 +147,28 @@ exports = module.exports = function(app) {
         var resources = [];
         var start = req.param('start') || 0;
         var len = req.param('len') || '4';
-        var category = req.param('category');
+        var slug = req.param('category');
         var q = keystone.list('Post').model.find().where('state', 'published').sort('-publishedDate').populate('author').skip(start).limit(len);
         q.populate("categories");
 
-        if (category) {
-            q.where("categories", category);
+        if (slug) {
+            // q.where("categories", category);
+            keystone.list('PostCategory').model.findOne({slug: slug}).exec(function (err, category) {
+                if (!err && category) {
+                    q.where("categories", category._id);
+                    q.exec(function(err, results) {
+                        res.header("Content-Type", "application/json; charset=utf-8");
+                        res.end(JSON.stringify(results));
+                    });
+                }
+            })
         }
-
-        q.exec(function(err, results) {
-            res.header("Content-Type", "application/json; charset=utf-8");
-            res.end(JSON.stringify(results));
-        });
+        else {
+            q.exec(function(err, results) {
+                res.header("Content-Type", "application/json; charset=utf-8");
+                res.end(JSON.stringify(results));
+            });
+        }
     });
 
     // 取得資源列表

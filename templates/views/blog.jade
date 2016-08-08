@@ -32,7 +32,7 @@ block content
 		.tabs
 			a.tab(class=(!data.categoryId)? "active" : "", href="/blog") 全部
 			each category in data.categories
-				a.tab(class=(data.categoryId==category._id)? "active" : "", href="/blog/#{category._id}") #{category.name}
+				a.tab(class=(data.categoryId==category.slug)? "active" : "", href="/blog/#{category.slug}") #{category.name}
 
 		//- 給爬蟲看的
 		.post-list.hidden-crawler

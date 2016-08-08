@@ -15,7 +15,7 @@ block opengraph
 
 block content
 	.blog-page(ng-controller="BlogController", ng-init="init()")
-		.promote-post(style="background-image:url(#{data.post.image.url})")
+		.promote-post(style="background-image:url(#{data.post.banner.url || data.post.image.url})")
 			.container.textAlign-center
 				.info
 					.metas

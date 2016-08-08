@@ -120,8 +120,8 @@
 				padding-bottom: 45.16%;
 				@extend .bgColor-snow;
 				@extend .backgroundImage-cover;
-				@extend .borderRadius-m;
-			    -webkit-filter: saturate(75%);
+				@extend .borderRadius-s;
+			    -webkit-filter: saturate(90%);
 			    transition-property: all;
 				@extend .transitionDuration-l;
 				@extend .transitionTimingFunction-ease;
@@ -222,7 +222,7 @@
 			}
 		}
 
-		p {
+		p, figcaption {
 			@extend .lineHieght-readable;
 			font-size: 18px;
 			margin-bottom: 1em;
@@ -236,25 +236,40 @@
 			background-color: #E9FAFF;
 			@extend .textColor-black;
 		}
+		
+		code {
+			display: inline;
+			border: 1px solid #ccc;
+			background-color: #f1f1f1;
+			border-radius: 3px;
+		    padding: 3px 6px;
+			margin: 0 3px;
+			@extend .textColor-black;
+		}
+
 		h2, h3, h4, h5, h6 {
 			// @extend .fontWeight-bold;
+			margin-top: 1.2em;
+			margin-bottom: 0.5em;
 		}
 		h2 {
-			margin-top: 2em;
-			margin-bottom: 1em;
+			
 		}
 
 		h3 {
 			font-size: 24px;
-			margin-top: 2em;
-			margin-bottom: 1em;
 		}
 
 		h4 {
 			@extend .textColor-slate;
 			font-size: 20px;
-			margin-top: 2em;
-			margin-bottom: 1em;
+		}
+
+		hr {
+		    border: none;
+    		border-bottom: 1px solid $smoke-color;
+    		@extend .marginTop-l;
+    		@extend .marginBottom-l;
 		}
 
 		ul, ol {

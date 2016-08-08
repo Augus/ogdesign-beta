@@ -20,7 +20,7 @@ exports = module.exports = function(req, res) {
 	// Load all categories
 	view.on('init', function(next) {
 		
-		keystone.list('PostCategory').model.find().sort('name').exec(function(err, results) {
+		keystone.list('PostCategory').model.find().sort('sortOrder').exec(function(err, results) {
 			
 			if (err || !results.length) {
 				return next(err);
@@ -88,7 +88,7 @@ exports = module.exports = function(req, res) {
 			.where('state', 'published')
 			.sort('-publishedDate')
 			.populate('author')
-			.limit('9')
+			.limit('40')
 		.exec(function(err, results) {
 			locals.data.posts = results;
 			next(err);
