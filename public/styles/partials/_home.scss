@@ -1,0 +1,218 @@
+
+// ---------------------------------------------------------------
+// 服務項目
+// ---------------------------------------------------------------
+.services {
+	max-width: 1080px;
+	margin: 0 auto;
+	@extend .textAlign-center;
+	.service {
+		@extend .paddingLeft-l;
+		@extend .paddingRight-l;
+		@extend .marginBottom-l;
+	    text-align: center;
+    	// text-align-last: center;
+    	// -webkit-text-align-last: center;
+		.icon {
+			@extend .marginBottom-m;
+			height: 140px;
+			line-height: 140px;
+			img {
+				display: inline-block;
+				vertical-align: bottom;
+				// width: 120px;
+			}
+		}
+		h3 {
+			@extend .textColor-black;
+			@extend .fontSize-l;
+			@extend .lineHieght-extraTight;
+			@extend .marginBottom-s;
+		}
+		p {
+			@extend .textColor-slate;
+			@extend .fontSize-s;
+			@extend .lineHieght-readable;
+		}
+	}
+}
+
+// ---------------------------------------------------------------
+// 案例
+// ---------------------------------------------------------------
+.showcases {
+	max-width: 1080px;
+	margin: 0 auto;
+	@extend .textAlign-center;
+	.showcase {
+		@extend .position-relative;
+		@extend .bgColor-white;
+		@extend .marginLeft-xs;
+		@extend .marginRight-xs;
+		@extend .marginBottom-l;
+		@extend .borderRadius-m;
+		text-align: justify;
+    	text-align-last: center;
+    	-webkit-text-align-last: center;
+		overflow: hidden;
+		box-shadow: 0 2px 20px -7px rgba(0,0,0, 0.3);
+		transition-property: all;
+		@extend .transitionDuration-l;
+		@extend .transitionTimingFunction-ease;
+		&:hover {
+			cursor: pointer;
+			box-shadow: 0 8px 30px -7px rgba(0,0,0, 0.4);
+			transform: translateY(-5px);
+		}
+		.thumbnail {
+			img {
+				width: 100%;
+			}
+		}
+		.intro {
+			padding: 30px;
+			h3 {
+				@extend .textColor-black;
+				@extend .fontSize-xl;
+				@extend .lineHieght-extraTight;
+				@extend .marginBottom-s;
+			}
+			p {
+				@extend .textColor-slate;
+				@extend .fontSize-s;
+				@extend .lineHieght-readable;
+			}
+		}
+	}
+}
+
+
+// ---------------------------------------------------------------
+// 設計觀點
+// ---------------------------------------------------------------
+.posts {
+	max-width: 1080px;
+	margin: 0 auto;
+	@extend .textAlign-left;
+	a.post {
+		display: block;
+		text-decoration: none;
+		@extend .position-relative;
+		@extend .bgColor-white;
+		@extend .marginLeft-xs;
+		@extend .marginRight-xs;
+		@extend .borderRadius-m;
+		text-align: justify;
+    	text-align-last: left;
+    	-webkit-text-align-last: left;
+		height: 360px;
+		overflow: hidden;
+		box-shadow: 0 2px 20px -7px rgba(0,0,0, 0.3);
+		transition-property: all;
+		@extend .transitionDuration-l;
+		@extend .transitionTimingFunction-ease;
+		&:hover {
+			cursor: pointer;
+			box-shadow: 0 8px 30px -7px rgba(0,0,0, 0.4);
+			transform: translateY(-5px);
+		}
+		.thumbnail {
+			width: 100%;
+			padding-bottom: 45.16%;
+			@extend .backgroundImage-cover;
+			@extend .position-relative;
+			.tag {
+				padding: 6px 11px 6px 6px;
+				border-radius: 0 20px 20px 0;
+				@extend .marginTop-s;
+				@extend .fontSize-s;
+				@extend .textColor-white;
+				@extend .bgColor-secondary;
+				@extend .position-absolute;
+				@extend .posPinTL;
+				@extend .fontWeight-bold;
+				&.tag1 {
+					background-color: #EB4748;
+				}
+				&.tag2 {
+					background-color: #00C584;
+				}
+				&.tag3 {
+					background-color: #9CC800;
+				}
+			}
+		}
+		.intro {
+			padding: 30px;
+			h3 {
+				@extend .textColor-black;
+				@extend .fontSize-xl;
+				@extend .lineHieght-tight;
+				@extend .marginBottom-s;
+			}
+			p {
+				@extend .textColor-sliver;
+				@extend .fontSize-s;
+				@extend .lineHieght-readable;
+				@extend .marginBottom-s;
+				max-height: $lineHieght-readable * 3;
+				overflow: hidden;
+			}
+			.metas {
+				@extend .textColor-sliver;
+				@extend .fontSize-s;
+				@extend .fontWeight-regular;
+			}
+		}
+	}
+}
+
+
+
+
+.testimonials {
+	max-width: 1080px;
+	margin: 0 auto 40px;
+	@extend .textAlign-center;
+	.testimonial {
+		opacity: 0.7;
+		&.active {
+			opacity: 1;
+			.message {
+				@extend .bgColor-primary;
+				@extend .textColor-white;
+				@extend .fontWeight-bold;
+				background-image: url(/images/testimonial-quote-white.svg);
+			}
+		}
+		.message {
+			padding: 50px 30px 30px;
+			margin: 40px 20px 30px;
+			@extend .bgColor-transparent;
+			@extend .textColor-slate;
+			@extend .fontSize-s;
+			@extend .borderRadius-m;
+			@extend .lineHieght-readable;
+			background-image: url(/images/testimonial-quote-grey.svg);
+			background-position: center 20px;
+			background-repeat: no-repeat;
+		}
+		.avatar {
+			display: inline-block;
+			width: 100px;
+			height: 100px;
+			@extend .marginBottom-m;
+			@extend .borderRadius-circle;
+			@extend .backgroundImage-cover;
+		}
+		.name {
+			@extend .marginBottom-xs;
+			@extend .fontSize-s;
+			@extend .fontWeight-bold;
+		}
+		.title {
+			@extend .textColor-sliver;
+			@extend .fontSize-xs;
+		}
+	}
+}
