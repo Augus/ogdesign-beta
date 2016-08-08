@@ -12,6 +12,7 @@ var PostCategory = new keystone.List('PostCategory', {
 });
 
 PostCategory.add({
+	slug: { type: String, label: '自定義網址名稱' },
 	name: { type: String, required: true, label: '分類名稱', initial: true },
 	color: { type: String, label: '分類顏色', initial: true }
 });
