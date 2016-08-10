@@ -111,12 +111,12 @@ keystone.set('email tests', require('./routes/emails'));
 // Configure the navigation bar in Keystone's Admin UI
 
 keystone.set('nav', {
-	'成功案例': ['portfolios', 'portfolio-categories'],
-	'文章': ['posts', 'post-categories', 'promote-posts'],
-	'設計資源': ['resources', 'resource-categories', 'resource-issues'],
+	'設計案例': ['portfolios', 'portfolio-categories'],
+	'部落格': ['posts', 'post-categories', 'promote-posts'],
+	'設計資源資源': ['resources', 'resource-categories', 'resource-issues'],
 	'常見問題': ['questions'],
 	// '設計資源建議': [],
-	'使用者': 'users'
+	'作者管理': 'users'
 });
 
 // Start Keystone to connect to your database and initialise the web server
