@@ -14,25 +14,29 @@ var Portfolio = new keystone.List('Portfolio', {
 });
 
 Portfolio.add({
-	title: { type: String, required: true, label: '作品名稱' },
+	slug: { type: String, required: true, label: '路徑（實際網站上的路徑，ex:/cupoy-app ）', initial: true, },
+	title: { type: String, required: true, label: '名稱', initial: true, },
+	description: { type: String, required: true, label: '描述', initial: true, },
 	publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' }, label: '發佈日期' },
 	cover: {
 		label: '封面',
 		type: Types.S3File,
 		filename: function(item, filename){
 			// 用object id作為文件名的前綴
-			return item._id + '-' + filename;
+			return 'portfolio-' + item._id + '-' + filename;
 		}
 	},
-	full: { 
-		label: '內容',
-		type: Types.S3File,
-		filename: function(item, filename){
-			// 用object id作為文件名的前綴
-			return item._id + '-' + filename;
-		}
-	}
+	categories: { type: Types.Relationship, ref: 'PortfolioCategory', many: true, label: '分類' },
+	
+	// full: { 
+	// 	label: '內容',
+	// 	type: Types.S3File,
+	// 	filename: function(item, filename){
+	// 		// 用object id作為文件名的前綴
+	// 		return item._id + '-' + filename;
+	// 	}
+	// }
 });
 
-Portfolio.defaultColumns = 'title, publishedDate|20%';
+Portfolio.defaultColumns = 'title, description, slug, publishedDate|20%';
 Portfolio.register();

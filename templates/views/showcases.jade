@@ -22,100 +22,113 @@ block content
 				h2.quote.fontWeight-regular 優秀的設計贏得用戶，<br>注重細節的產品可以為用戶帶來難忘的體驗。
 	
 
+	//- .tabs
+	//- 	a.tab.active(href="") 全部
+	//- 	a.tab(href="") 介面設計
+	//- 	a.tab(href="") 產品設計
+	//- 	a.tab(href="") 交互設計
+	//- 	a.tab(href="") 用戶體驗
+
 	.tabs
-		a.tab.active(href="") 全部
-		a.tab(href="") 介面設計
-		a.tab(href="") 產品設計
-		a.tab(href="") 交互設計
-		a.tab(href="") 用戶體驗
+		a.tab(class=(!data.categoryId)? "active" : "", href="/showcases") 全部
+		each category in data.categories
+			a.tab(class=(data.categoryId==category.slug)? "active" : "", href="/showcases/#{category.slug}") #{category.name}
 
 	//- ============ 設計案例 =============
 	section.grey
 		.row.showcases
-			.col-md-4
-				.showcase
-					.thumbnail
-						img(src='images/showcases/showcase-1.jpg', alt='丹山嘉訊 - App 設計')
-					.intro
-						h3 丹山嘉訊 - App 設計
-						p 華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。
-			.col-md-4
-				.showcase
-					.thumbnail
-						img(src='images/showcases/showcase-2.jpg', alt='丹山嘉訊 - App 設計')
-					.intro
-						h3 丹山嘉訊 - App 設計
-						p 華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。
-			.col-md-4
-				.showcase
-					.thumbnail
-						img(src='images/showcases/showcase-3.jpg', alt='丹山嘉訊 - App 設計')
-					.intro
-						h3 丹山嘉訊 - App 設計
-						p 華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。
-			.col-md-4
-				.showcase
-					.thumbnail
-						img(src='images/showcases/showcase-4.jpg', alt='丹山嘉訊 - App 設計')
-					.intro
-						h3 丹山嘉訊 - App 設計
-						p 華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。
-			.col-md-4
-				.showcase
-					.thumbnail
-						img(src='images/showcases/showcase-5.jpg', alt='丹山嘉訊 - App 設計')
-					.intro
-						h3 丹山嘉訊 - App 設計
-						p 華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。
-			.col-md-4
-				.showcase
-					.thumbnail
-						img(src='images/showcases/showcase-6.jpg', alt='丹山嘉訊 - App 設計')
-					.intro
-						h3 丹山嘉訊 - App 設計
-						p 華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。
-			.col-md-4
-				.showcase
-					.thumbnail
-						img(src='images/showcases/showcase-1.jpg', alt='丹山嘉訊 - App 設計')
-					.intro
-						h3 丹山嘉訊 - App 設計
-						p 華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。
-			.col-md-4
-				.showcase
-					.thumbnail
-						img(src='images/showcases/showcase-2.jpg', alt='丹山嘉訊 - App 設計')
-					.intro
-						h3 丹山嘉訊 - App 設計
-						p 華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。
-			.col-md-4
-				.showcase
-					.thumbnail
-						img(src='images/showcases/showcase-3.jpg', alt='丹山嘉訊 - App 設計')
-					.intro
-						h3 丹山嘉訊 - App 設計
-						p 華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。
-			.col-md-4
-				.showcase
-					.thumbnail
-						img(src='images/showcases/showcase-4.jpg', alt='丹山嘉訊 - App 設計')
-					.intro
-						h3 丹山嘉訊 - App 設計
-						p 華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。
-			.col-md-4
-				.showcase
-					.thumbnail
-						img(src='images/showcases/showcase-5.jpg', alt='丹山嘉訊 - App 設計')
-					.intro
-						h3 丹山嘉訊 - App 設計
-						p 華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。
-			.col-md-4
-				.showcase
-					.thumbnail
-						img(src='images/showcases/showcase-6.jpg', alt='丹山嘉訊 - App 設計')
-					.intro
-						h3 丹山嘉訊 - App 設計
-						p 華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。
+			each portfolio in data.portfolios
+				.col-md-4
+					.showcase
+						.thumbnail
+							img(src='#{portfolio.cover.url}', alt='#{portfolio.title}')
+						.intro
+							h3 #{portfolio.title}
+							p #{portfolio.description}
+			//- .col-md-4
+			//- 	.showcase
+			//- 		.thumbnail
+			//- 			img(src='images/showcases/showcase-1.jpg', alt='丹山嘉訊 - App 設計')
+			//- 		.intro
+			//- 			h3 丹山嘉訊 - App 設計
+			//- 			p 華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。
+			//- .col-md-4
+			//- 	.showcase
+			//- 		.thumbnail
+			//- 			img(src='images/showcases/showcase-2.jpg', alt='丹山嘉訊 - App 設計')
+			//- 		.intro
+			//- 			h3 丹山嘉訊 - App 設計
+			//- 			p 華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。
+			//- .col-md-4
+			//- 	.showcase
+			//- 		.thumbnail
+			//- 			img(src='images/showcases/showcase-3.jpg', alt='丹山嘉訊 - App 設計')
+			//- 		.intro
+			//- 			h3 丹山嘉訊 - App 設計
+			//- 			p 華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。
+			//- .col-md-4
+			//- 	.showcase
+			//- 		.thumbnail
+			//- 			img(src='images/showcases/showcase-4.jpg', alt='丹山嘉訊 - App 設計')
+			//- 		.intro
+			//- 			h3 丹山嘉訊 - App 設計
+			//- 			p 華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。
+			//- .col-md-4
+			//- 	.showcase
+			//- 		.thumbnail
+			//- 			img(src='images/showcases/showcase-5.jpg', alt='丹山嘉訊 - App 設計')
+			//- 		.intro
+			//- 			h3 丹山嘉訊 - App 設計
+			//- 			p 華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。
+			//- .col-md-4
+			//- 	.showcase
+			//- 		.thumbnail
+			//- 			img(src='images/showcases/showcase-6.jpg', alt='丹山嘉訊 - App 設計')
+			//- 		.intro
+			//- 			h3 丹山嘉訊 - App 設計
+			//- 			p 華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。
+			//- .col-md-4
+			//- 	.showcase
+			//- 		.thumbnail
+			//- 			img(src='images/showcases/showcase-1.jpg', alt='丹山嘉訊 - App 設計')
+			//- 		.intro
+			//- 			h3 丹山嘉訊 - App 設計
+			//- 			p 華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。
+			//- .col-md-4
+			//- 	.showcase
+			//- 		.thumbnail
+			//- 			img(src='images/showcases/showcase-2.jpg', alt='丹山嘉訊 - App 設計')
+			//- 		.intro
+			//- 			h3 丹山嘉訊 - App 設計
+			//- 			p 華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。
+			//- .col-md-4
+			//- 	.showcase
+			//- 		.thumbnail
+			//- 			img(src='images/showcases/showcase-3.jpg', alt='丹山嘉訊 - App 設計')
+			//- 		.intro
+			//- 			h3 丹山嘉訊 - App 設計
+			//- 			p 華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。
+			//- .col-md-4
+			//- 	.showcase
+			//- 		.thumbnail
+			//- 			img(src='images/showcases/showcase-4.jpg', alt='丹山嘉訊 - App 設計')
+			//- 		.intro
+			//- 			h3 丹山嘉訊 - App 設計
+			//- 			p 華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。
+			//- .col-md-4
+			//- 	.showcase
+			//- 		.thumbnail
+			//- 			img(src='images/showcases/showcase-5.jpg', alt='丹山嘉訊 - App 設計')
+			//- 		.intro
+			//- 			h3 丹山嘉訊 - App 設計
+			//- 			p 華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。
+			//- .col-md-4
+			//- 	.showcase
+			//- 		.thumbnail
+			//- 			img(src='images/showcases/showcase-6.jpg', alt='丹山嘉訊 - App 設計')
+			//- 		.intro
+			//- 			h3 丹山嘉訊 - App 設計
+			//- 			p 華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。
 
 	section.cta.mac-devices
 		.content
