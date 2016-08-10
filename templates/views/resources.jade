@@ -1,12 +1,9 @@
 extends ../layouts/default-normal-header
 
 block opengraph
-	//- meta(property='fb:app_id', content='138566025676')
 	title= title || '設計資源總匯 - 奧革設計 - 創業公司的設計夥伴'
-	meta(name="keywords", content="設計資源,創業資源,靈感")
 	meta(property='og:site_name', content='奧革設計 - 創業公司的設計夥伴')
 	meta(property='og:type', content='website')
-	//- meta(property='og:url', content='http://www.ogdesign.tw/resources')
 	meta(property='og:title', content='設計資源總匯 - 奧革設計')
 	meta(property='og:description', content='奧革設計團隊精心整理的設計師必備設計資源，收藏各式各樣的靈感、配色、資源、設計工具、免費圖庫等，設計師趕快把他收藏到書籤吧！')
 	meta(property='og:image', content='http://www.ogdesign.tw/images/cover.jpg')
@@ -63,31 +60,4 @@ block content
 
 	
 block js
-	script(src='/js/angular-google-analytics.min.js')
-	script(src='/js/is.min.js')
-	script(src='/js/mousetrap.js')
-	script(src='/js/wMousetrap.js')
-	script(src='/js/ngModal.js')
-	script(src='/js/resources.js')
-    
-	script.
-		window.fbAsyncInit = function() {
-			FB.init({
-				appId				:'YOUR_APP_ID', // App ID
-				channelUrl	: '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File
-				status			: true, // check login status
-				cookies			: true, // enable cookies to allow the server to access the session
-				xfbml				: true  // parse XFBML
-			});
-		};
-		// Load the SDK Asynchronously
-		(function(d){
-			var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-			if (d.getElementById(id)) {return;}
-			js = d.createElement('script'); js.id = id; js.async = true;
-			js.src = "https://connect.facebook.net/zh_TW/all.js";
-			ref.parentNode.insertBefore(js, ref);
-		}(document));
-	
-
-
+	script(src="/js/controllers/resources.js")

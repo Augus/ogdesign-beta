@@ -1,14 +1,9 @@
 extends ../layouts/default
 
-
 block opengraph
-	//- meta(property='fb:app_id', content='138566025676')
 	title= title || '服務項目 - 奧革設計 - 創業公司的設計夥伴'
-	meta(name="description", content="奧革設計是一家使用者介面設計及使用者經驗諮詢公司，我們擅長透過設計新思維創造最好的產品體驗。")
-	meta(name="keywords", content="網頁設計,App設計,使用者經驗設計,網站開發,設計顧問,設計諮詢")
 	meta(property='og:site_name', content='奧革設計 - 創業公司的設計夥伴')
 	meta(property='og:type', content='website')
-	//- meta(property='og:url', content='')
 	meta(property='og:title', content='奧革設計 - 創業公司的設計夥伴')
 	meta(property='og:description', content='奧革設計是一家使用者介面設計及使用者經驗諮詢公司，我們擅長透過設計新思維創造最好的產品體驗。')
 	meta(property='og:image', content='http://www.ogdesign.tw/images/home-cover.jpg')
@@ -97,29 +92,3 @@ block content
 					| 。
 
 block js
-	//- script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js')
-	//- script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.js')
-	script(src='/js/angular-google-analytics.min.js')
-	script(src='/js/mousetrap.js')
-	script(src='/js/wMousetrap.js')
-	script(src='/js/is.min.js')
-	script(src="/js/jquery.scrolldepth.min.js")
-	script(src="/js/landinga.js")
-	script.
-		window.fbAsyncInit = function() {
-			FB.init({
-				appId				:'YOUR_APP_ID', // App ID
-				channelUrl	: '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File
-				status			: true, // check login status
-				cookies			: true, // enable cookies to allow the server to access the session
-				xfbml				: true  // parse XFBML
-			});
-		};
-		// Load the SDK Asynchronously
-		(function(d){
-			var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-			if (d.getElementById(id)) {return;}
-			js = d.createElement('script'); js.id = id; js.async = true;
-			js.src = "https://connect.facebook.net/zh_TW/all.js";
-			ref.parentNode.insertBefore(js, ref);
-		}(document));

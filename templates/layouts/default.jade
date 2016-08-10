@@ -7,6 +7,10 @@ html(lang="zh-Hant-TW")
 		meta(charset="utf-8")
 		meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
 		meta(http-equiv="X-UA-Compatible" content="IE=edge")
+		meta(name="keywords", content="奧革設計,UI設計,UX設計,介面設計,使用經驗設計,響應式網頁設計,交互設計,RWD,UI,UX,UI Design,UX Design,User Interface Design,interaction design")
+		meta(name="description", content="奧革設計是一家使用者介面設計及使用者經驗諮詢公司，我們擅長透過設計新思維創造最好的產品體驗。")
+		meta(name="author", content="奧革設計")
+
 		link(rel="alternate", type="application/rss+xml", title="奧革設計 - 創業公司的設計夥伴", href="/feed/")
 		link(rel="shortcut icon", href="/favicon.png", type="image/x-icon")
 		link(href="/styles/site.css", rel="stylesheet")
@@ -141,13 +145,7 @@ html(lang="zh-Hant-TW")
 							.fb-follow(data-href="https://www.facebook.com/Augus.YiHao", data-width="90", data-layout="button_count", data-show-faces="true", style="display: block;")
 
 		//- JAVASCRIPT
-		
-		//- jQuery 1.11.3 is included by default, and required by both Bootstrap
-		//- and the KeystoneJS Content Editor. If you are not targeting IE8,
-		//- you can upgrade to 2.1.4 (also bundled) for better performance.
 		script(src='/js/jquery/jquery-1.11.3.min.js')
-
-		//- Customise which Bootstrap javascript files are served by including
 		script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js')
 		script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.js')
 		script(src='/js/angular-google-analytics.min.js')
@@ -163,13 +161,6 @@ html(lang="zh-Hant-TW")
 
 		sceipt(src='/js/app.js')
 
-		//- The KeystoneJS Content Editor provides support for ks-editable data attributes,
-		//- which generate links to edit content for users who can access Keystone
-		if user && user.canAccessKeystone
-			script(src='/keystone/js/content/editor.js')
-
-		
-		//- Add scripts that are globally required by your site here.
 		script.
 			function isScrolledIntoView(elem) {
 				var docViewTop = $(window).scrollTop();
