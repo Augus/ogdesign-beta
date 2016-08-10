@@ -11,9 +11,12 @@
 @import "components/_grid";
 @import "components/_button";
 @import "components/_form-elements";
+@import "components/_menu";
 
 // 各頁面風格
 @import "partials/_home";
+@import "partials/_services";
+@import "partials/_process";
 @import "partials/_contactus";
 @import "partials/_qa";
 @import "partials/_blog";
@@ -33,6 +36,11 @@
 }
 
 // 使用方法，盡可能使用繼承撰寫特定樣式
+html {
+	overflow-x: hidden;
+	-webkit-tap-highlight-color: transparent;
+}
+
 body {
 	@extend .bgColor-white;
 	@extend .textColor-steel;
@@ -41,10 +49,16 @@ body {
 	@extend .lineHieght-extraTight;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    // overflow-x: hidden;
     * {
     	box-sizing: border-box;
     }
 }
+
+// img {
+// 	max-width: 100%;
+// }
 
 pre {
     white-space: pre-wrap;
@@ -107,27 +121,30 @@ code {
 // ---------------------------------------------------------------
 
 .main-content {
-	margin-top: 80px;
+	// margin-top: 80px;
 	min-height: calc(100vh - 330px);
+	&.has-header {
+		margin-top: 80px;
+	}
 }
 
 .header {
 	@extend .position-fixed;
-	@extend .bgColor-white;
+	// @extend .bgColor-white;
+	background-color: rgba(#fff, 0.96);
 	z-index: 100000;
 	height: 80px;
 	line-height: 80px;
 	top: 0;
 	left: 0;
 	right: 0;
-	padding: 0 10px;
+	padding: 0 30px;
 	border-bottom: 1px solid $smoke-color;
-	// &.transparent {
-	// 	@extend .bgColor-transparent;
-	// 	@extend .position-fixed;
-	// 	border-bottom: 1px solid transparent;
-	// }
+	opacity: 0;
+	transform: translateY(-80px);
 	h1 {
+		display: inline-block;
+		vertical-align: middle;
 		img {
 			margin-top: 6px;
 		}
@@ -141,7 +158,7 @@ code {
 			&.active {
 				a {
 					@extend .textColor-black;
-					border-bottom: 1px solid $black-color;
+					border-bottom: 1px solid $ui-primary-color;
 				}
 			}
 			a {
@@ -168,17 +185,139 @@ code {
 		padding: 0 24px;
 		@extend .margin-0;
 	}
+	&.show {
+		opacity: 1;
+		transition-property: all;
+		@extend .transitionDuration-l;
+		@extend .transitionTimingFunction-ease;
+		transition-delay: 150ms;
+		transform: translateY(0);
+	}
+	&.transparent {
+		z-index: 100000 - 1;
+		opacity: 1;
+		@extend .position-absolute;
+		@extend .bgColor-transparent;
+		@extend .position-fixed;
+		transform: translateY(0);
+		border-bottom: 1px solid transparent;
+		ul.nav {
+			li {
+				&.active {
+					a {
+						color: #fff;
+						border-bottom: 1px solid #fff;
+					}
+				}
+				a {
+					color: #fff;
+				}
+			}
+		}
+		.QA {
+			color: #fff;
+		}
+	}
+	@media screen and (max-width: 1024px) {
+		ul.nav {
+			li {
+				a {
+					margin: 0 $margin-xs;
+				}
+			}
+		}
+		.QA {
+			margin: 0 $margin-xs 0 0;
+		}
+	}
+	@media screen and (max-width: 920px) {
+		ul.nav, .QA, .button {
+			display: none;
+		}
+	}
+}
+
+@keyframes openMobileNav {
+    0% {
+        opacity: 0;
+    }
+    80% {
+    	.mobile-help {
+        	transform: translateY(100%);
+        }
+    }
+    100% {
+        opacity: 1;
+        .mobile-help {
+        	transform: translateY(0%);
+        }
+    }
+}
+
+.mobile-nav {
+	@extend .position-fixed;
+	@extend .posPinFill;
+	@extend .textColor-white;
+	@extend .textAlign-right;
+	z-index: 100001;
+	opacity: 0;
+	background-color: rgba($black-color, 0.95);
+	display: none;
+	&.open {
+		display: block;
+		animation: openMobileNav $transition-duration-l $timing-function-ease forwards;
+	}
+	.mobile-help {
+		@extend .position-absolute;
+		left: 30px;
+		bottom: 0;
+	}
+	ul {
+		@extend .position-absolute;
+		top: 50%;
+		right: 30px;
+		transform: translateY(-50%);
+		li {
+			a {
+				display: inline-block;
+				font-size: 18px;
+				padding: 20px 0 8px 20px;
+				margin-bottom: 12px;
+				@extend .textColor-white;
+				border-bottom: 1px solid transparent;
+			}
+			&.active {
+				a {
+					@extend .textColor-primary;
+					border-bottom: 1px solid $ui-primary-color;
+				}
+			}
+		}
+	}
+	.menu {
+		@extend .position-absolute;
+		top: 36px;
+		right: 30px;
+		div {
+			&:before {
+	            background: lighten(#fff, 70%);
+	        }
+	        &:after {
+	            background: #fff;
+	        }
+		}
+	}
 }
 
 .banner {
-	min-height: 600px;
-	height: 60vw;
-	max-height: 40vh;
+	// min-height: 100vh;
+	height: 100vh;
+	// max-height: 40vh;
 	@extend .position-relative;
 	@extend .backgroundImage-cover;
 	&.medium {
 		height: 50vw;
-		min-height: 320px;
+		min-height: 400px;
 		max-height: 480px;
 	}
 	&:before {
@@ -191,7 +330,7 @@ code {
 	}
 	.info {
 		z-index: 11;
-		margin: 0 auto;
+		margin: 20px auto 0;
 		width: 100%;
 		max-width: 720px;
 		@extend .paddingLeft-m;
@@ -270,10 +409,10 @@ section {
 		padding-bottom: $padding-l;
 		.info {
 			h2 {
-				font-size: $fontSize-xxl;
+				font-size: $fontSize-xl;
 			}
 			p {
-				font-size: $fontSize-m;	
+				font-size: $fontSize-s;	
 			}
 		}
 	}
@@ -299,6 +438,7 @@ section.cta {
 			background-image: url(/images/mac-devices.png);
 		    background-position: center bottom;
 	    	background-repeat: no-repeat;
+	    	// background-size: 100%;
 		}
 	}
 	.content {
@@ -309,7 +449,7 @@ section.cta {
 		@extend .posPinCenter;
 	}
 	h2 {
-		font-size: 22px;
+		font-size: 24px;
 		@extend .lineHieght-loose;
 		@extend .textColor-black;
 		@extend .fontWeight-light;
@@ -334,6 +474,12 @@ section.cta {
 			.button.button-l {
 				width: 120px;
 				font-size: 16px;
+			}
+		}
+		@media screen and (max-width: 640px) {
+			.button.button-l {
+				margin: 0;
+				width: 100% !important;
 			}
 		}
 	}
@@ -397,46 +543,30 @@ section.cta {
 	@extend .bgColor-white;
 	@extend .textAlign-center;	
 	height: 60px;
-	line-height: 60px;
-	border-bottom: 1px solid $smoke-color;
+	line-height: 58px;
+	border-bottom: 2px solid $smoke-color;
+	&.fixed {
+		z-index: 100000;
+		@extend .position-fixed;
+		top: 80px;
+		left: 0;
+		right: 0;
+	}
 	.tab {
 		@extend .textColor-sliver;
 		display: inline-block;
 		padding: 0 18px;
 		&.active {
 			@extend .textColor-black;
-			border-bottom: 1px solid $black-color;
+			border-bottom: 2px solid $ui-primary-color;
+		}
+	}
+	@media screen and (max-width: 640px) {
+		padding: 0 30px;
+		@include horizontalScroll();
+		.tab {
+			@include horizontalScroll-item();
 		}
 	}
 }
-
-.servies-page {
-	.service {
-		height: 640px;
-		.row {
-			@extend .position-relative;
-		}
-		.path {
-			@extend .position-absolute;
-			&.path1 {
-				top: 300px;
-			    left: 300px;
-			}
-			&.path2 {
-				top: 300px;
-			    left: 220px;
-			}
-			&.path3 {
-			    top: 250px;
-    			left: 100px;
-			}
-			&.path4 {
-			    top: 370px;
-    			left: 300px;
-			}
-		}
-	}
-}
-
-
 

@@ -120,5 +120,29 @@
 				@extend .marginBottom-0;
 			}
 		}
+		@media screen and (max-width: 640px) {
+		    margin: 0px 0 0;
+    		border-radius: 0;
+			padding: 30px 20px;
+			.submit-result {
+				@extend .padding-m;
+			}
+			.button.submit-button {
+			    width: calc(100% - 30px);
+				@extend .marginBottom-0;
+			}
+			.control {
+				@extend .marginBottom-xs;
+			}
+			.styles {
+				margin: 0 -20px;
+				padding-left: 20px;
+				@include horizontalScroll();
+				.style {
+					min-width: 200px;
+					@include horizontalScroll-item();
+				}
+			}
+		}
 	}
 }

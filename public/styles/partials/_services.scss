@@ -1,0 +1,23 @@
+.services-page {
+	.service {
+		@media screen and (max-width: 640px) {
+			text-align: center;
+			padding: 30px;
+			h2 {
+				font-size: $fontSize-xl;
+				margin-bottom: $margin-s;
+				text-align: left;
+			}
+			p {
+				font-size: $fontSize-m;
+				line-height: $lineHieght-readable;
+				text-align: left;
+			}
+			img {
+				display: inline-block;
+				max-width: 240px;
+				margin-bottom: $margin-l;
+			}
+		}
+	}
+}

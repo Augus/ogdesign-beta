@@ -113,6 +113,7 @@ app.controller("ResourceController", function ($scope, $http, $timeout, $locatio
     });
 
 	$scope.filter = function (category) {
+        $("body").scrollTop(0);
 		if (category) {
 			$scope.currentCategory = category._id;
             $location.search('category', category._id);

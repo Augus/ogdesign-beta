@@ -42,59 +42,32 @@ html(lang="zh-Hant-TW")
 
 		//- HEADER
 		block header
-			.header(header="#transparent-header", ng-class="{'show': showHeader}")
-				.container
-					.row.between-md.middle-md
-						.col-xs-6.col-sm-6.col-md-1.textAlign-left
-							h1: a(href="/")
-								img(src="/images/logo.svg" alt="奧革設計")
-						.col-md-7.hidden-xs.hidden-sm
-							ul.nav
-								li(class=(section=='services')? "active" : ""): a(href="/services") 服務項目
-								li(class=(section=='process')? "active" : ""): a(href="/process") 合作流程
-								li(class=(section=='showcases')? "active" : ""): a(href="/showcases") 設計案例
-								li(class=(section=='resources')? "active" : ""): a(href="/resources") 設計資源總匯
-								li(class=(section=='blog')? "active" : ""): a(href="/blog") 部落格
-						.col-md-4.textAlign-right.hidden-xs.hidden-sm
-							a.QA(href="/qa")
-								i.material-icons help_outline
-								span 常見問題
-							a.button.button-ghost.button-grey.button-rounded.button-s.button-hover-primary(href="/contactus") 聯絡我們
-						.col-xs-6.col-sm-6.col-md-11.textAlign-right.hidden-md.hidden-lg
-							.menu(ng-click="toggleMenu()", ng-class="{'is-active' : isOpenMenu}", ng-show="!isOpenMenu")
-								div
-								div
-								div
-
-			#transparent-header.header.transparent
-				.container
-					.row.between-md.middle-md
-						.col-xs-6.col-sm-6.col-md-1.textAlign-left
-							h1: a(href="/")
-								img(src="/images/logo-white.svg" alt="奧革設計")
-						.col-md-7.hidden-xs.hidden-sm
-							ul.nav
-								li(class=(section=='services')? "active" : ""): a(href="/services") 服務項目
-								li(class=(section=='process')? "active" : ""): a(href="/process") 合作流程
-								li(class=(section=='showcases')? "active" : ""): a(href="/showcases") 設計案例
-								li(class=(section=='resources')? "active" : ""): a(href="/resources") 設計資源總匯
-								li(class=(section=='blog')? "active" : ""): a(href="/blog") 部落格
-						.col-md-4.textAlign-right.hidden-xs.hidden-sm
-							a.QA(href="/qa")
-								i.material-icons help_outline
-								span 常見問題
-							a.button.button-ghost.button-white.button-rounded.button-s.button-hover-primary(href="/contactus") 聯絡我們
-						.col-xs-6.col-sm-6.col-md-11.textAlign-right.hidden-md.hidden-lg
-							.menu(ng-click="toggleMenu()", ng-class="{'is-active' : isOpenMenu}")
-								div
-								div
-								div
-
-		
-
+		.header.show(header="#transparent-header", ng-class="{'show': showHeader}")
+			.container
+				.row.between-md.middle-md
+					.col-xs-6.col-sm-6.col-md-1.textAlign-left
+						h1: a(href="/")
+							img(src="/images/logo.svg" alt="奧革設計")
+					.col-md-7.hidden-xs.hidden-sm
+						ul.nav
+							li(class=(section=='services')? "active" : ""): a(href="/services") 服務項目
+							li(class=(section=='process')? "active" : ""): a(href="/process") 合作流程
+							li(class=(section=='showcases')? "active" : ""): a(href="/showcases") 設計案例
+							li(class=(section=='resources')? "active" : ""): a(href="/resources") 設計資源總匯
+							li(class=(section=='blog')? "active" : ""): a(href="/blog") 部落格
+					.col-md-4.textAlign-right.hidden-xs.hidden-sm
+						a.QA(href="/qa")
+							i.material-icons help_outline
+							span 常見問題
+						a.button.button-ghost.button-grey.button-rounded.button-s.button-hover-primary(href="/contactus") 聯絡我們
+					.col-xs-6.col-sm-6.col-md-11.textAlign-right.hidden-lg
+						.menu(ng-click="toggleMenu()", ng-class="{'is-active' : isOpenMenu}", ng-show="!isOpenMenu")
+							div
+							div
+							div
 		//- BODY
 		#body
-			.main-content
+			.main-content.has-header
 				block intro
 				+flash-messages(messages)
 				block content
@@ -104,13 +77,13 @@ html(lang="zh-Hant-TW")
 			.container
 				.row.top-md
 					.col-sm-12.sitemap
-						.links.hidden-sm.hidden-xs
+						.links
 							a.link-title(href='/') 關於我們
 							a(href='/resources') 設計資源
 							a(href='/blog') 部落格
 							a(href='http://fb.com/ogdesign.tw' target="_blank") 粉絲團
 
-						.links.hidden-sm.hidden-xs
+						.links
 							a.link-title(href='/services') 服務項目
 							a(href='/services#user-experience') 使用經驗優化設計
 							a(href='/services#user-interface') 使用者介面設計
@@ -118,7 +91,7 @@ html(lang="zh-Hant-TW")
 							a(href='/services#visual-design') 視覺設計
 							a(href='/services#mvp') 產品雛形設計
 							a(href='/services#design-consult') 設計諮詢協助
-						.links.hidden-sm.hidden-xs
+						.links.hidden-sm
 							a.link-title(href='/process') 合作流程
 							a(href='#') 產品需求分析
 							a(href='#') 架構規劃

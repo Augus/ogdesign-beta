@@ -1,9 +1,16 @@
 .resources-page {
 	min-height: calc(100vh - 80px);
 	@extend .bgColor-snow;
-	@extend .paddingTop-m;
-	@extend .paddingBottom-m;
 	overflow: hidden;
+	.container {
+		@extend .paddingTop-m;
+		@extend .paddingBottom-m;
+	}
+	.tabs {
+		height: 44px;
+		line-height: 42px;
+		border-bottom-width: 1px;
+	}
 	.social-share {
 		@extend .position-absolute;
 		top: 0;
@@ -117,6 +124,45 @@
 						}
 					}
 				}
+			}
+		}
+	}
+	@media screen and (max-width: 640px) {
+		.container {
+			padding-top: 60px;
+		}
+		.category-menu {
+			display: none;
+		}
+		.resources-content {
+			margin-left: 0;
+			padding: 0 10px;
+			input.search {
+				width: 100%;
+			}
+			.resources {
+				width: 100%;
+				margin: auto;
+			}
+			.resource {
+				.intro {
+					padding: 15px;
+					h3 {
+						font-size: 14px;
+					}
+					.metas, .tags {
+						display: none;
+					}
+				}
+			}
+			.masonry-brick {
+				padding: 0 5px;
+				a {
+					margin-bottom: 10px;
+				}
+				// margin: 10px;
+				// padding: 0;
+    			// margin: 5px;
 			}
 		}
 	}

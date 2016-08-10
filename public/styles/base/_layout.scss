@@ -297,3 +297,15 @@ $margin-xl: 80px;
 .marginLRightxl {
 	margin-right: $margin-xl;
 }
+
+// 水平滾動
+@mixin horizontalScroll() {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+@mixin horizontalScroll-item() {
+	flex: none;
+}

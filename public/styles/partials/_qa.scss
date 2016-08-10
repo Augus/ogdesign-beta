@@ -50,5 +50,11 @@
 				@extend .textColor-primary;
 			}
 		}
+		@media screen and (max-width: 640px) {
+			padding: 30px;
+			.qa.expand {
+				margin: 0 auto 40px;	
+			}
+		}
 	}
 }

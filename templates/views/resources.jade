@@ -1,4 +1,4 @@
-extends ../layouts/default
+extends ../layouts/default-normal-header
 
 block opengraph
 	//- meta(property='fb:app_id', content='138566025676')
@@ -30,6 +30,9 @@ block content
 							.tag #{category.name}
 
 	.resources-page(ng-controller="ResourceController", ng-init="init()")
+		.tabs.fixed.hidden-lg.hidden-md.hidden-sm
+			a.tab(ng-click="filter()", ng-class="{'active': !currentCategory}") 全部
+			a.tab(ng-repeat='category in categories' ng-class="{'active': category._id == currentCategory}" ng-click="filter(category)") {{category.name}}
 		.container
 			.category-menu
 				ul
@@ -41,12 +44,12 @@ block content
 						span.count {{category.count}}
 			.resources-content
 				.row
-					.col-md-12.position-relative
+					.col-xs-12.col-sm-12.col-md-12.position-relative
 						input.input-block.search(type="text", placeholder='搜尋資源…（例如：靈感、工具、配色）', ng-model='keyword' ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 300, 'blur': 0 } }",  ng-keyup='onSearchKeyUp($event)', ng-focus="onSearchFocus($event)")
-						.social-share
+						.social-share.hidden-xs
 							.fb-like(data-href="https://www.facebook.com/ogdesign.tw", data-layout="button_count", data-action="like", data-show-faces="false", data-share="true", data-width="200", data-colorscheme="light", style="display: inline-block; color: #111D2D;  overflow: hidden; height: 20px; margin: 16px 0 12px 0;")
 				.row.resources(masonry masonry-options="{ transitionDuration: '600ms' }" load-images="false")
-					.col-sm-6.col-md-4.col-lg-3.masonry-brick(ng-repeat='resource in rs = (resources | filter: searchFilter | filter: categoryFilter) track by resource._id')
+					.col-xs-6.col-sm-6.col-md-4.col-lg-3.masonry-brick(ng-repeat='resource in rs = (resources | filter: searchFilter | filter: categoryFilter) track by resource._id')
 						a.resource(href="{{resource.url}}", target="_blank")
 							.thumbnail(ng-if="resource.image", style="background-image: url({{resource.image.url}})")
 							.intro

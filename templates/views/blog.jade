@@ -1,4 +1,4 @@
-extends ../layouts/default
+extends ../layouts/default-normal-header
 
 block opengraph
 	title= title || '部落格 | 奧革設計 - 創業公司的設計夥伴'
@@ -16,18 +16,19 @@ block content
 			each recommend in data.recommends
 				ks-swiper-slide.swiper-slide
 					.promote-post(style='background-image: url(#{recommend.image.url})')
-						.container.textAlign-center
-							.info
-								.metas
-									if recommend.categories.length > 0
-										.category(style="background-color: #{recommend.categories[0].color}") #{recommend.categories[0].name}
-									span.author #{recommend.author.name.first}
-									span.date
-										i.material-icons access_time
-										| #{recommend._.publishedDate.format('MMMM Do, YYYY')}
-								h2.quote.fontWeight-regular #{recommend.title}
-								p #{recommend.content.brief}
-								a.button.button-ghost.button-rounded.button-lg.button-white.button-hover-primary(href="/blog/post/#{recommend.slug}") 閱讀全文
+						a(href="/blog/post/#{recommend.slug}")
+							.container.textAlign-center
+								.info
+									.metas
+										if recommend.categories.length > 0
+											.category(style="background-color: #{recommend.categories[0].color}") #{recommend.categories[0].name}
+										span.author #{recommend.author.name.first}
+										span.date
+											i.material-icons access_time
+											| #{recommend._.publishedDate.format('MMMM Do, YYYY')}
+									h2.quote.fontWeight-regular #{recommend.title}
+									p #{recommend.content.brief}
+									a.button.button-ghost.button-rounded.button-lg.button-white.button-hover-primary(href="/blog/post/#{recommend.slug}") 閱讀全文
 
 		.tabs
 			a.tab(class=(!data.categoryId)? "active" : "", href="/blog") 全部
@@ -56,7 +57,7 @@ block content
 			i.material-icons more_horiz
 
 		section.cta.suscribe.grey
-			h2 如果你喜歡我們的分享，關注我們的部落格， <br>隨時掌握重要的設計的資訊！
+			h2 關注我們的部落格， <br>隨時掌握重要的設計的資訊！
 			.marginBottom-m
 			.container
 				.row.top-md.center-md.suscribe-from

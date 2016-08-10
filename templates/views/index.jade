@@ -17,7 +17,11 @@ block opengraph
 
 block content
 	.home-page
-		.banner.medium(style='background-image: url(images/bg.jpg)')
+		.banner(style='background-image: url(images/bg.jpg)')
+			.video-container
+				video.video.hidden-xs(autoplay="", loop="", muted="")
+					source(src="landing.mp4", type="video/mp4")
+					source(src="landing.webm", type="video/webm")
 			.container.textAlign-center
 				.info
 					.marginTop-l
@@ -27,6 +31,9 @@ block content
 					.marginBottom-m
 					a.button.button-s.button-primary(href="/showcases") 查看設計案例
 					a.button.button-ghost.button-s.button-white(href="/process") 查看合作流程
+				.aniWrap
+					.mouse
+						.scroller
 		
 		//- ============ 服務項目 =============
 		section
@@ -38,32 +45,32 @@ block content
 				.marginBottom-xl
 			.container
 					.row.services
-						.col-md-4.service
+						.col-sm-6.col-md-4.service
 							.icon
 								img(src='images/services/service-ux.svg', alt='使用經驗優化設計')
-							h3 使用經驗優化設計
+							h3 使用經驗優化
 							p 依照您的需求進行客製化的分析以及研究，從用戶體驗的視角提出的解決方式，讓使用者需求與商業目標在您的產品中找到完美平衡。
-						.col-md-4.service
+						.col-sm-6.col-md-4.service
 							.icon
 								img(src='images/services/service-ui.svg', alt='使用者介面設計')
 							h3 使用者介面設計
 							p 美觀的使用者介面與流暢的使用者經驗才能抓住使用者的心，我們的初衷即是在美學與需求中找到平衡點，設計出美好的產品體驗。
-						.col-md-4.service
+						.col-sm-6.col-md-4.service
 							.icon
 								img(src='images/services/service-rwd.svg', alt='響應式網頁設計')
 							h3 響應式網頁設計
 							p 響應式網頁設計 (Responsive Web Design，RWD) 是現在這個多元裝置時代不可或缺的服務，我們將協助您打造絕佳的使用體驗。
-						.col-md-4.service
+						.col-sm-6.col-md-4.service
 							.icon
 								img(src='images/services/service-vd.svg', alt='視覺設計')
 							h3 視覺設計
 							p 除了影音圖文廣告製作外，我們能同時讓旗下合作頻道、插畫家、創作者進行曝光，讓知名度於短時間內急速攀升。
-						.col-md-4.service
+						.col-sm-6.col-md-4.service
 							.icon
 								img(src='images/services/service-mvp.svg', alt='產品雛形設計')
 							h3 產品雛形設計
 							p 用最少的成本證明你的想法，利用最小可行性產品快速驗證你的想法，我們能夠迅速的開發極為擬真的產品雛形。
-						.col-md-4.service
+						.col-sm-6.col-md-4.service
 							.icon
 								img(src='images/services/service-consult.svg', alt='設計諮詢協助')
 							h3 設計諮詢協助
@@ -78,42 +85,42 @@ block content
 					| 。
 				.marginBottom-l
 			.row.showcases
-				.col-md-4
+				.col-sm-6.col-md-4
 					.showcase
 						.thumbnail
 							img(src='images/showcases/showcase-1.jpg', alt='丹山嘉訊 - App 設計')
 						.intro
 							h3 丹山嘉訊 - App 設計
 							p 華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。
-				.col-md-4
+				.col-sm-6.col-md-4
 					.showcase
 						.thumbnail
 							img(src='images/showcases/showcase-2.jpg', alt='丹山嘉訊 - App 設計')
 						.intro
 							h3 丹山嘉訊 - App 設計
 							p 華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。
-				.col-md-4
+				.col-sm-6.col-md-4
 					.showcase
 						.thumbnail
 							img(src='images/showcases/showcase-3.jpg', alt='丹山嘉訊 - App 設計')
 						.intro
 							h3 丹山嘉訊 - App 設計
 							p 華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。
-				.col-md-4
+				.col-sm-6.col-md-4
 					.showcase
 						.thumbnail
 							img(src='images/showcases/showcase-4.jpg', alt='丹山嘉訊 - App 設計')
 						.intro
 							h3 丹山嘉訊 - App 設計
 							p 華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。
-				.col-md-4
+				.col-sm-6.col-md-4
 					.showcase
 						.thumbnail
 							img(src='images/showcases/showcase-5.jpg', alt='丹山嘉訊 - App 設計')
 						.intro
 							h3 丹山嘉訊 - App 設計
 							p 華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。
-				.col-md-4
+				.col-sm-6.col-md-4
 					.showcase
 						.thumbnail
 							img(src='images/showcases/showcase-6.jpg', alt='丹山嘉訊 - App 設計')
@@ -122,7 +129,7 @@ block content
 							p 華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。
 
 		//- ============ 合作流程 =============
-		section
+		section.design-process
 			.info
 				h2 合作流程
 				p 我們設計的不只是產品，我們更打造讓你感覺順暢的使用體驗，
@@ -131,27 +138,27 @@ block content
 				.marginBottom-xl
 				img(src='images/process.png', alt='奧革設計合作流程')
 
-		//- ============ 夥伴推薦 =============
-		section
-			.info
-				h2 夥伴推薦
-				p 我們希望能夠與更多的團隊一起成長、進步，<br>快來看看夥伴們怎麼說
-				.row.bottom-md.testimonials
-					.col-md-4.testimonial
-						.message 奧革設計在使用者體驗與介面設計上非常用心與專業，是產品開發不可缺少的合作夥伴。
-						.avatar(style="background-image: url(/images/testimonial.png);")
-						.name 呂宜穎
-						.title 台灣智慧觀光 產品經理
-					.col-md-4.testimonial.active
-						.message 奧革設計對於 UI/UX 的設計讓我們印象深刻，深入使用者行為分析，兼顧美觀與實用，真是個不可多得的好夥伴！
-						.avatar(style="background-image: url(/images/呂宜穎.png);")
-						.name 呂宜穎
-						.title 台灣智慧觀光 產品經理
-					.col-md-4.testimonial
-						.message 不論是介面、使用者經驗，奧革設計全面地改革 AIESEC 運用網站的方式。
-						.avatar(style="background-image: url(/images/testimonial2.png);")
-						.name 呂宜穎
-						.title 台灣智慧觀光 產品經理
+		//- //- ============ 夥伴推薦 =============
+		//- section
+		//- 	.info
+		//- 		h2 夥伴推薦
+		//- 		p 我們希望能夠與更多的團隊一起成長、進步，<br>快來看看夥伴們怎麼說
+		//- 		.row.bottom-md.testimonials
+		//- 			.col-md-4.testimonial
+		//- 				.message 奧革設計在使用者體驗與介面設計上非常用心與專業，是產品開發不可缺少的合作夥伴。
+		//- 				.avatar(style="background-image: url(/images/testimonial.png);")
+		//- 				.name 呂宜穎
+		//- 				.title 台灣智慧觀光 產品經理
+		//- 			.col-md-4.testimonial.active
+		//- 				.message 奧革設計對於 UI/UX 的設計讓我們印象深刻，深入使用者行為分析，兼顧美觀與實用，真是個不可多得的好夥伴！
+		//- 				.avatar(style="background-image: url(/images/呂宜穎.png);")
+		//- 				.name 呂宜穎
+		//- 				.title 台灣智慧觀光 產品經理
+		//- 			.col-md-4.testimonial
+		//- 				.message 不論是介面、使用者經驗，奧革設計全面地改革 AIESEC 運用網站的方式。
+		//- 				.avatar(style="background-image: url(/images/testimonial2.png);")
+		//- 				.name 呂宜穎
+		//- 				.title 台灣智慧觀光 產品經理
 		
 		section.grey
 			.info
@@ -161,7 +168,7 @@ block content
 					|。
 				.marginBottom-l
 			.row.posts
-				.col-md-4
+				.col-sm-6.col-md-4
 					a.post
 						.thumbnail(style='background-image: url(images/posts/1.png)')
 							.tag.tag1 介面設計
@@ -169,7 +176,7 @@ block content
 							h3 淺談介面的空白狀態設計 Empty State Design
 							p 各種社群媒體擁有截然不同的特性，好的社群經營者懂得釐清行銷目的，交叉活用工具，創造績效。徹底理解社群奧義，不再被工具遷著鼻子走，聰明經營社群、創造行銷實效，徹底打開你的社群行銷力！
 							.metas MAY 26, 2016 BY 奧革士
-				.col-md-4
+				.col-sm-6.col-md-4
 					a.post
 						.thumbnail(style='background-image: url(images/posts/2.png)')
 							.tag.tag2 交互設計
@@ -177,7 +184,7 @@ block content
 							h3 介面動畫設計要瞭解的事情
 							p 各種社群媒體擁有截然不同的特性，好的社群經營者懂得釐清行銷目的，交叉活用工具，創造績效。徹底理解社群奧義，不再被工具遷著鼻子走，聰明經營社群、創造行銷實效，徹底打開你的社群行銷力！
 							.metas MAY 26, 2016 BY 奧革士
-				.col-md-4
+				.col-sm-6.col-md-4
 					a.post
 						.thumbnail(style='background-image: url(images/posts/3.png)')
 							.tag.tag3 產品設計

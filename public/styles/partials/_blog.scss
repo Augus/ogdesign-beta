@@ -14,23 +14,21 @@
 		.swiper-pagination-bullet {
 			background: #fff;
 		}
+		@media screen and (max-width: 640px) {
+			.swiper-button-next, .swiper-button-prev {
+				display: none;
+			}
+		}
 	}
 	.promote-post {
 		height: 36vw;
 		max-height: 480px;
-		min-height: 400px;
+		min-height: 300px;
 		@extend .position-relative;
 		@extend .backgroundImage-cover;
 		-webkit-background-blend-mode: overlay;
 		background-blend-mode: overlay;
-		background-color: rgba(24,26,36,0.8);
-		// &:before {
-		// 	z-index: 10;
-		// 	content: "";
-		// 	@extend .position-absolute;
-		// 	@extend .posPinFill;
-		// 	background-color: rgba(24,26,36,0.80);
-		// }
+		background-color: rgba(24,26,36,0.6);
 		.info {
 			z-index: 11;
 			margin: 0 auto;
@@ -85,6 +83,27 @@
 			.button {
 				width: 160px;
 				@extend .fontSize-m;
+			}
+		}
+		@media screen and (max-width: 640px) {
+			.info {
+				text-align: center;
+				h2 {
+					&.quote {
+						font-size: 24px;
+					}
+				}
+				p {
+					font-size: 16px;
+					max-height: $lineHieght-readable * 3;
+					overflow: hidden;
+				}
+				.metas {
+					display: none;
+				}
+				.button {
+					display: none;
+				}
 			}
 		}
 	}
@@ -160,6 +179,12 @@
 					@extend .textColor-sliver;
 					@extend .fontSize-s;
 				}
+			}
+		}
+		@media screen and (max-width: 640px) {
+			.post {
+				height: auto;
+				padding: 0 30px;
 			}
 		}
 	}
@@ -305,11 +330,24 @@
 			margin-top: $lineHieght-readable;
 			margin-bottom: $lineHieght-readable;
 		}
+		@media screen and (max-width: 640px) {
+		    margin: 30px auto;
+    		padding: 0 30px;
+    		p, figcaption {
+    			font-size: 16px;
+    		}
+    		blockquote.emphasize {
+			    padding: 40px 0px;
+    		}
+		}
 
 	}
 	.post-share {
 		max-width: 650px;
 		margin: $margin-xl auto;
+		@media screen and (max-width: 640px) {
+			padding: 0 30px;
+		}
 		.shareaholic-share-buttons {
 			margin-left: 0 !important;
 			li.shareaholic-share-button {
@@ -336,6 +374,7 @@
 				@extend .fontSize-s;
 				@extend .textColor-sliver;
 				@extend .lineHieght-readable;
+				margin-left: 75px;
 			}
 		}
 	}

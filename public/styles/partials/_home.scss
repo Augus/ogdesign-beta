@@ -1,4 +1,62 @@
+.aniWrap {
+	z-index: 99;
+	position: absolute;
+	left: 50%;
+	bottom: 40px;
+	transform: translateX(-50%);
+  	display: block;
+  	width: 28px;
+}
 
+.mouse {
+	opacity: .6;
+  width: 28px;
+  height: 50px;
+  border: 1px solid white;
+  border-radius: 14px;
+}
+
+.scroller {
+  width: 3px;
+  height: 3px;
+  border-radius: 2px;
+  background: white;
+  position: relative;
+  top: 10px;
+  left: 12px;
+  -webkit-animation: scrolls 1.3s ease-out infinite ; /* Chrome, Safari, Opera */
+}
+
+
+@-webkit-keyframes scrolls {
+    0%   {top: 10px; opacity: 1; height: 4px}
+    95% {top: 18px; opacity: 0; height: 10px}
+  	100% {top: 8px; opacity: 1; height: 4px}
+}
+
+.video-container {
+	z-index: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	overflow: hidden;
+	@extend .bgColor-black;
+	@media screen and (max-width: 750px) {
+		display: none;
+	}
+	video {
+		position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    min-height: 100%;
+	    min-width: 100%;
+	    min-height: 100vh;
+	    min-width: 100vw;
+	    transform: translateX(-50%) translateY(-50%);
+	}
+}
 // ---------------------------------------------------------------
 // 服務項目
 // ---------------------------------------------------------------
@@ -35,6 +93,25 @@
 			@extend .lineHieght-readable;
 		}
 	}
+	@media screen and (max-width: 1024px) {
+		.service {
+			padding: 0 $padding-m;
+		}
+	}
+	@media screen and (max-width: 768px) {
+		.service {
+			padding: 0 $padding-l;
+		}
+	}
+}
+
+.design-process {
+	@media screen and (max-width: 640px) {
+		.info img {
+			max-width: 130%;
+	    	margin-left: -15%;
+		}
+	}
 }
 
 // ---------------------------------------------------------------
@@ -65,6 +142,7 @@
 			transform: translateY(-5px);
 		}
 		.thumbnail {
+			// min-height: 220px;
 			img {
 				width: 100%;
 			}
@@ -81,6 +159,31 @@
 				@extend .textColor-slate;
 				@extend .fontSize-s;
 				@extend .lineHieght-readable;
+			}
+		}
+	}
+	@media screen and (max-width: 1024px) {
+		.showcase {
+			margin: 0 0 $margin-m;
+		}
+	}
+	@media screen and (max-width: 640px) {
+		@include horizontalScroll();
+		margin-left: -20px;
+		margin-right: -20px;
+		padding-left: 20px;
+		.showcase {
+			min-width: 240px;
+			margin: 0 $margin-m $margin-m 0;
+			@include horizontalScroll-item();
+			.intro {
+				padding: 20px;
+				h3 {
+					font-size: $fontSize-l;
+				}
+				p {
+					font-size: $fontSize-xs;
+				}
 			}
 		}
 	}
@@ -165,6 +268,36 @@
 			}
 		}
 	}
+	@media screen and (max-width: 1024px) {
+		@include horizontalScroll();
+		a.post {
+			margin: 0 0 $margin-m;
+		    // width: 240px;
+			@include horizontalScroll-item();
+		}
+	}
+	@media screen and (max-width: 640px) {
+		@include horizontalScroll();
+		margin-left: -20px;
+		margin-right: -20px;
+		padding-left: 20px;
+		a.post {
+			width: 240px;
+			min-width: 240px;
+			height: 320px;
+			margin: 0 $margin-m $margin-m 0;
+			@include horizontalScroll-item();
+			.intro {
+				padding: 20px;
+				h3 {
+					font-size: $fontSize-l;
+				}
+				p {
+					font-size: $fontSize-xs;
+				}
+			}
+		}
+	}
 }
 
 
@@ -213,6 +346,13 @@
 		.title {
 			@extend .textColor-sliver;
 			@extend .fontSize-xs;
+		}
+	}
+	@media screen and (max-width: 640px) {
+		@include horizontalScroll();
+		.testimonial {
+		    width: 300px;
+			@include horizontalScroll-item();
 		}
 	}
 }

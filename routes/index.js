@@ -43,7 +43,7 @@ exports = module.exports = function(app) {
     app.get('/', routes.views.index);
     app.get('/services', routes.views.services);
     app.get('/process', routes.views.process);
-    app.get('/showcases', routes.views.showcases);
+    app.get('/showcases/:slug?', routes.views.showcases);
     app.get('/resources', routes.views.resources);
     app.get('/blog/:category?', routes.views.blog);
     app.get('/blog/post/:post', routes.views.post);
