@@ -69,8 +69,6 @@
 		@extend .paddingRight-l;
 		@extend .marginBottom-l;
 	    text-align: center;
-    	// text-align-last: center;
-    	// -webkit-text-align-last: center;
 		.icon {
 			@extend .marginBottom-m;
 			height: 140px;
@@ -78,7 +76,6 @@
 			img {
 				display: inline-block;
 				vertical-align: bottom;
-				// width: 120px;
 			}
 		}
 		h3 {
